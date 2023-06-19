@@ -8,7 +8,8 @@
 .menu-items{
     display: flex;
 }
-.menu-items a.icon {display:none;}
+.menu-items a.icon {display:none;
+  font-size: 40px; /* Increased font size */}
 .menu-list{height: auto;}
 
 .menu-items a{ 
@@ -18,6 +19,7 @@
   font-size: 32px;
   font-family: 'Mulish', sans-serif;
 }
+.menu-items a{text-decoration: none;}
 .get-in {
   margin-left: 50px;
   background-color: blue;
@@ -111,8 +113,12 @@ main h2{font-size: 48px;}
   #myLinks {
     display: none;
   }
+  .logo {margin-bottom: auto;}
   .menu-items a.icon {
-    display: block; 
+    display: block; margin-top: 20px;
+    margin-bottom: auto;
     margin-right: 20px;
   }
+  .menu-bar{height: auto; }
+  .get-in {margin-left:0;}
 }
