@@ -13,11 +13,10 @@
                 <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
                 <div class="menu-items">
                     <div class="menu-list" id="myLinks">
-                        <a href="#">Home</a>
-                        <a href="#">About</a>
-                        <a href="#">Schedule</a>
-                        <a href="#">Materials</a>
-                        <a href="#">Join Us</a>
+                        <a href="/">Home</a>
+                        <a href="/">About</a>
+                        <a href="/">Schedule</a>
+                        <a href="/materials">Materials</a>
                         <a href="#" class="get-in">GET INVOLVED</a>
                     </div>
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -25,8 +24,7 @@
                 </div>     
         </div>
         <main>
-            <h2>Welcome to Supernatural <br> Community Church</h2>  
-            <h1>Lighting up the dark places</h1><br><br>
+            <h1>Enter your email below to recieve our weekly teachings.</h1><br><br>
         </main>
         <!-- Link to Bootstrap JavaScript -->
         <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
