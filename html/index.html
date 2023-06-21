@@ -8,8 +8,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title> SCC </title>
-        <link rel="icon" href="../static/images/logo.png" type="image/png">
+        <title> Supernatural Community Church </title>
     </head>
 
     <body>
@@ -18,7 +17,7 @@
             <div class="menu-items">
                 <div class="menu-list" id="myLinks">
                     <a href="#">Home</a>
-                    <a href="#">About</a>
+                    <a href="#" onclick="toggleAbout()">About</a>
                     <a href="#">Schedule</a>
                     <a href="#">Materials</a>
                     <a href="#" class="get-in">GET INVOLVED</a>
@@ -37,16 +36,34 @@
                     <div class="mission">
                         <h1>Lighting up the dark places</h1>
                     </div>
-                    <div><h1>Rochester, NY, USA <br> Sunday, 10 am - 12:30 pm</h1></div>
+                    <div>
+                        <h1>Rochester, NY, USA <br> Sunday, 10 am - 12:30 pm</h1>
+                    </div>
 
                     <div class="socials">
-                        <button type="button" class="btn btn-secondary">Podcast</button>
-                        <button type="button" class="btn btn-secondary">Sound Cloud</button>
-                        <button type="button" class="btn btn-secondary">Spotify</button>
+                        <div id="socials">
+                            Connect with our audio platforms to listen to our teachings
+                        </div>
+                        <button type="button" class="btn btn-secondary">
+                            <a href="https://podcasts.apple.com/us/podcast/supernatural-community-church/id1688783080" target="_blank">Podcast</a> 
+                        </button>
+                        <button type="button" class="btn btn-secondary">
+                            <a href="https://soundcloud.com/user-361210320" target="_blank">Sound Cloud</a> </button>
+                        <button type="button" class="btn btn-secondary">
+                            <a href="https://open.spotify.com/show/1Z6rvc2qPF5aagpPq9D4uu?si=ce70c817086e4111&nd=1" target="_blank">Spotify</a></button>
                     </div>
                 </section>
             </div>
-            
+            <div class="about" id="about">
+                <h2>About</h2>
+                <p>Our mission is to preach and teach the never changing message of redemption in Christ to an ever-changing world.
+                    Thus, we are committed to equip believers as we fellowship together with the word. We do this with much emphasis 
+                    on the reality of the new creation in redemption with the intent that men are grounded and able to teach others the same. 
+                    We are set out to light up every dark places on the earth as we preach and teach the gospel with the consciousness of definite signs and wonders.
+                    Supernatural Community Church is a church ministry where we are devoted to raising and training ministers of the gospel who will 
+                    reach the ends of the earth and light up every dark places.</p>
+            </div>
+
         </main>
         <footer>
             <h1>Footer</h1>
