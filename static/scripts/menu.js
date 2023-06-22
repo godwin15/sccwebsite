@@ -9,11 +9,3 @@ function myFunction() {
         x.style.backgroundColor = "yellow";
     }
 }
-function toggleAbout() {
-    var aboutDiv = document.getElementById("about");
-    if (aboutDiv.style.display === "none") {
-        aboutDiv.style.display = "block";
-    } else {
-        aboutDiv.style.display = "none";
-    }
-}
