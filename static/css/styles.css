@@ -1,12 +1,12 @@
 .menu-bar{
-    height: 160px; 
-    width: 100%; display: flex;
-    background-color: whitesmoke;
-    align-items: center; justify-content: center;
-    position: fixed; top: 0;
+  height: 160px; 
+  width: 100%; display: flex;
+  background-color: whitesmoke;
+  align-items: center; justify-content: center;
+  position: fixed; top: 0;
 }
 .menu-items{
-    display: flex;
+  display: flex;
 }
 .menu-items a.icon {display:none;
   font-size: 40px; /* Increased font size */}
@@ -121,23 +121,4 @@ main h2{font-size: 48px;}
   }
   .menu-bar{height: auto; }
   .get-in {margin-left:0;}
-}
-
-#aboutid {
-  color: white;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 120vh;
-  text-align: center;
-}
-#scheduleid {
-  color: white;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 120vh;
-  text-align: center;
 }

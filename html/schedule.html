@@ -10,21 +10,21 @@
     </head>
     <body>
         <div class="menu-bar">
-            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo" href="/">
             <div class="menu-items">
                 <div class="menu-list" id="myLinks">
                     <a href="/">Home</a>
                     <a href="/about">About</a>
                     <a href="/schedule">Schedule</a>
-                    <a href="/materials">Materials</a>
-                    <a href="#" class="get-in">GET INVOLVED</a>
+                    <a href="#">Materials</a>
+                    <a href="/joinus" class="get-in">GET INVOLVED</a>
                 </div>
                 <!--<a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i></a>-->
             </div>
         </div>
         <main>
-            <h1>Enter your email below to recieve our weekly teachings.</h1><br><br>
+            <h2>These are our operational hours</h2>
         </main>
         <!-- Link to Bootstrap JavaScript -->
         <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>

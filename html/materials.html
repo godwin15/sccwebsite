@@ -5,28 +5,26 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title> SCC </title>
     </head>
     <body>
         <div class="menu-bar">
-                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
-                <div class="menu-items">
-                    <div class="menu-list" id="myLinks">
-                        <a href="#">Home</a>
-                        <a href="#">About</a>
-                        <a href="#">Schedule</a>
-                        <a href="#">Materials</a>
-                        <a href="#">Join Us</a>
-                        <a href="#" class="get-in">GET INVOLVED</a>
-                    </div>
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                        <i class="fa fa-bars"></i></a>
-                </div>     
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo" href="/">
+            <div class="menu-items">
+                <div class="menu-list" id="myLinks">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/schedule">Schedule</a>
+                    <a href="#">Materials</a>
+                    <a href="/joinus" class="get-in">GET INVOLVED</a>
+                </div>
+                <!--<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i></a>-->
+            </div>
         </div>
         <main>
-            <h2>Welcome to Supernatural <br> Community Church</h2>  
-            <h1>Lighting up the dark places</h1><br><br>
+            <h2>Here are videos of our weekly teachings</h2>
         </main>
         <!-- Link to Bootstrap JavaScript -->
         <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
