@@ -16,7 +16,6 @@
   color: black; 
 	padding: 8px;
   font-size: 32px;
-  font-family: 'Mulish', sans-serif;
 }
 .get-in {
   margin-left: 50px;
@@ -109,8 +108,79 @@ body::before {
   .menu-bar{height: auto; }
   .get-in {margin-left:0;}
 }
-footer{
-  color: white; height: 50px;
-  width: 100%; background-color: black;
-  justify-content: center;text-align: center;
+footer{margin-top: auto;}
+.grid-container {
+  color:white;
+  display: grid;
+  gap: 80px 80px;
+  grid-template-columns: auto auto;
+  background-color: #071119;
+  padding: 5px;
+}
+.grid-container2 {
+  display: grid;
+  gap: 20px 70px;
+  grid-template-columns: auto;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius:10px;
+  text-align: center;
+}
+.grid-container2 a{text-decoration: none;}
+.grid-container2 button {
+  background-color: rgba(211, 191, 191, 0.8); font-weight: bold;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius:10px;
+  font-size: 15px;
+  text-align: center;
+}
+@media (max-width:1050px){
+  .grid-container2 button {padding: 15px;}
+	.grid-container {
+  	gap: 0px 0px;
+  	grid-template-columns: auto;
+	}}
+footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
+text-align: center;}
+.offering{
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  color:white;
+  border-radius:10px;
+}
+.offering button{
+  background-color: rgba(211, 191, 191, 0.8); font-weight: bold;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 12px;
+  border-radius:10px;
+  font-size: 15px;
+  text-align: center;
+}
+.offering input{
+  padding: 12px;
+  border-radius:10px;
+}
+
+.pdf-subview {
+  width: 100%;
+  height: 975px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.pdf-subview iframe {
+  width: 100%;
+  height: 100%;
+}
+@media(max-width:500px){
+  .offering form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
