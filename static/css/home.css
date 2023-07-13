@@ -1,0 +1,28 @@
+.home{
+    color: white;
+}
+.mission{
+    font-size: 46px;
+}
+.socials{
+    margin-top: 100px;
+    margin: 100px;
+}
+.about{
+    margin: 20px;
+    color:aliceblue;
+    display: none;
+    background-color: rgba(73, 64, 113, 0.6); 
+    width: 70%;
+    margin-bottom: 30px;
+}
+.socials a{text-decoration: none; color: black;}
+#socials{color:white; font-size: large; height: auto;width: 100%; margin-bottom: 20px ;}
+@media (max-width:500px) {
+    .mission{
+        font-size: 26px;
+    }
+    .socials{
+        display: flex; flex-direction: column;
+    }
+}

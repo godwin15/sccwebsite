@@ -5,6 +5,8 @@ function myFunction() {
     } else {
         x.style.display = "flex";
         x.style.flexDirection = "column";
+        x.style.marginTop = "80px";
+        x.style.backgroundColor = "yellow";
     }
 }
 
