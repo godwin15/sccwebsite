@@ -67,10 +67,6 @@ def favicon():
 def home_page():
     return render_template('index.html')
 
-@app.route('/joinus')
-def joinus_page():
-    return render_template('join_us.html')
-
 @app.route('/offering')
 def offering():
     return render_template('offering.html', public_key=public_key)
@@ -84,11 +80,11 @@ def about():
     return render_template("about.html")
 
 @app.route('/schedule')
-def about():
+def schedule():
     return render_template("schedule.html")
 
 @app.route('/get-involved')
-def about():
+def get_involved():
     return render_template("join_us.html")
 
 @app.route('/payment', methods=['POST'])
