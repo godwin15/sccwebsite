@@ -79,6 +79,18 @@ def offering():
 def thankyou():
     return render_template('thankyou.html')
 
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
+@app.route('/schedule')
+def about():
+    return render_template("schedule.html")
+
+@app.route('/get-involved')
+def about():
+    return render_template("join_us.html")
+
 @app.route('/payment', methods=['POST'])
 def payment():
 
