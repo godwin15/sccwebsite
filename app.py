@@ -8,13 +8,13 @@ from io import BytesIO
 
 app = Flask(__name__, template_folder="html/", static_url_path="/static")
 
-public_key = "~"
-stripe.api_key = "~"
+public_key = "-"
+stripe.api_key = "-"
 
 # Configure Amazon S3 credentials
-S3_BUCKET_NAME = "~"
-AWS_ACCESS_KEY_ID = "~"
-AWS_SECRET_ACCESS_KEY = "~"
+S3_BUCKET_NAME = '-'
+AWS_ACCESS_KEY_ID = '-'
+AWS_SECRET_ACCESS_KEY = '-'
 
 # Helper function to generate signed URLs for the PDF files
 def generate_signed_url(file):
