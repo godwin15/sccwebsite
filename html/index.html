@@ -1,37 +1,63 @@
 <!DOCTYPE html>
-<htm lang="en">
+<html lang="en">
 
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title> SCC </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title> Supernatural Community Church </title>
     </head>
 
     <body>
-        <div class="menu-bar">
+        <nav class="menu-bar">
             <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
-            <div class="menu-items">
-                <div class="menu-list" id="myLinks">
-                    <a href="#">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/schedule">Schedule</a>
-                    <a href="/materials">Materials</a>
-                    <a href="/joinus" class="get-in">GET INVOLVED</a>
-                </div>
-                <!--<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i></a>*-->
-            </div>
-        </div>
+            <ul class="container" id="menu-items">
+                <li><a href="#">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/schedule">Schedule</a></li>
+                <li><a href="/materials">Materials</a></li>
+            </ul>
+            <a href="/joinus" class="get-in">GET INVOLVED</a>
+        </nav>
+
         <main>
-            <h2>Welcome to Supernatural <br> Community Church</h2>
-            <h1>Lighting up the dark places</h1><br><br>
+            <div class="home">
+                <section>
+                    <div>
+                        <h1>Welcome to Supernatural Community Church</h1>
+                    </div>
+                    <div class="mission">
+                        <h1>Lighting up the dark places</h1>
+                    </div>
+                    <div>
+                        <h1>Rochester, NY, USA <br> Sunday, 10 am - 12:30 pm</h1>
+                    </div>
+
+                    <div class="socials">
+                        <div id="socials">
+                            Connect with our audio platforms to listen to our teachings
+                        </div>
+                        <button type="button" class="btn btn-secondary">
+                            <a href="https://podcasts.apple.com/us/podcast/supernatural-community-church/id1688783080" target="_blank">Podcast</a> 
+                        </button>
+                        <button type="button" class="btn btn-secondary">
+                            <a href="https://soundcloud.com/user-361210320" target="_blank">Sound Cloud</a> </button>
+                        <button type="button" class="btn btn-secondary">
+                            <a href="https://open.spotify.com/show/1Z6rvc2qPF5aagpPq9D4uu?si=ce70c817086e4111&nd=1" target="_blank">Spotify</a></button>
+                    </div>
+                </section>
+            </div>
+
         </main>
-        <!-- Link to Bootstrap JavaScript -->
+        <footer>
+            <h1>Footer To Be Designed</h1>
+        </footer>
+
+        <!-- Scripts -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
         <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
     </body>
-</htm>
+</html>
