@@ -6,6 +6,6 @@ function myFunction() {
         x.style.display = "flex";
         x.style.flexDirection = "column";
         x.style.marginTop = "80px";
-        x.style.backgroundColor = "yellow";
+        x.style.backgroundColor = "rgba(237, 226, 226, 0.8)";
     }
 }
