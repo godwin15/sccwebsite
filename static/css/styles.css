@@ -165,13 +165,14 @@ footer{margin-top: auto;}
 	}}
 footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
 text-align: center;}
-.offering{
+
+.mail, .offering{
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   color:white;
   border-radius:10px;
 }
-.offering button{
+.mail, .offering button{
   background-color: rgba(211, 191, 191, 0.8); font-weight: bold;
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 12px;
@@ -202,4 +203,46 @@ text-align: center;}
     justify-content: center;
     align-items: center;
   }
+}
+.about{
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 20px;
+  margin: 5px;
+  width: 80%;
+  padding: 5px;
+}
+
+.mailing {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex; /* Set the display to flex */
+  align-items: center; /* Center the content vertically */
+  justify-content: center;
+  border-radius: 5px;
+  width: 90%;
+}
+.mailing form{ display:block; 
+margin: 20px;}
+.mailing input{
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 15px;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  border-radius:15px;
+  outline: none;
+}
+.mailing button{width:40%; border-radius:15px;
+  background-color: rgba(211, 191, 191, 0.8);
+  font-weight: bold;
+  padding: 12px 20px;
+  margin: 8px 15px;}
+@media(max-width: 550px){
+  .mailing form{
+      display:flex;
+      flex-direction:column;}
+      .mailing input, .mailing button{width: 100%;}
+  }
+
+.mailing input[type=text]:focus {
+  background-color: lightblue;
 }
