@@ -1,86 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title> SCC </title>
     </head>
     <body>
-        <div class="menu-bar">
+        <nav class="menu-bar">
             <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
-            <div class="menu-items">
-                <div class="menu-list" id="myLinks">
-                    <a href="/">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/schedule">Schedule</a>
-                    <a href="/materials">Materials</a>
-                    <a href="#" class="get-in">GET INVOLVED</a>
+            <ul class="container" id="menu-items">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/schedule">Schedule</a></li>
+                <li><a href="/materials">Materials</a></li>
+            </ul>
+            <a href="#" class="get-in">GET INVOLVED</a>
+        </nav>    
+
+        <main>  
+            <h2>Join our mailing list to receive weekly teachings on the word God</h2>
+            <div class="mailing">
+                <form id="mail-form" method="POST" action="/process_email">
+                    <input type="text" name="firstName" required placeholder="First Name">
+                    <input type="text" name="lastName" id="lastName" required placeholder="Last Name">
+                <input id="input-input" type="text" name="email" required placeholder="Email@example.com">
+                <button type="submit">Join Us</button>
+            </form>
+        </main>
+        <footer>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h2>Contact us via</h2>
+                    <h4>Phone: 585-210-5038</h4>
+                    <h4>Email: Supernaturalcommunitychurch@gmail.com</h4>
+                    <p>Bringing Hope of the light of the</p>
+                    <p>Gospel to every nation.</p>
                 </div>
-                <!--<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i></a>-->
-            </div>
-=======
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>SCC Join Us</title>
-</head>
-<body>
-<nav class="menu-bar">
-    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
-    <div class="menu-items">
-        <div class="menu-list" id="myLinks">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/schedule">Schedule</a>
-            <a href="/materials">Materials</a>
-            <a href="/get-involved" class="get-in">GET INVOLVED</a>
->>>>>>> 30af5baab01900e107bdfbc6f85ad9f18fe55b25
-        </div>
-        <a href="javascript:void(0);" class="icon menu-btn" onclick="myFunction()">
-            <i class="fa fa-bars"></i></a>
-    </div>
-</nav>
-<main>  
-        <h2>Join our mailing list to receive weekly teachings on the word God</h2>
-        <div class="mailing">
-            <form id="mail-form" method="POST" action="/process_email">
-                <input type="text" name="firstName" required placeholder="First Name">
-                <input type="text" name="lastName" id="lastName" required placeholder="Last Name">
-            <input id="input-input" type="text" name="email" required placeholder="Email@example.com">
-            <button type="submit">Join Us</button>
-          </form>
-</main>
-<footer>
-    <div class="grid-container">
-        <div class="grid-item">
-            <h2>Contact us via</h2>
-            <h4>Phone: 585-210-5038</h4>
-            <h4>Email: Supernaturalcommunitychurch@gmail.com</h4>
-            <p>Bringing Hope of the light of the</p>
-            <p>Gospel to every nation.</p>
-        </div>
-        <div class="grid-item">
-            <div>
-                <h3>Support the mission by giving through</h3>
-                <div class="grid-container2">
-                    <a href="/offering">
-                        <button>Give Online</button>
-                    </a>
+                <div class="grid-item">
+                    <div>
+                        <h3>Support the mission by giving through</h3>
+                        <div class="grid-container2">
+                            <a href="/offering">
+                                <button>Give Online</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</footer>
+        </footer>
 <!-- Link to Bootstrap JavaScript -->
-<script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

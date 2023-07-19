@@ -9,37 +9,17 @@
         <title> SCC </title>
     </head>
     <body>
-<<<<<<< HEAD
-        <div class="menu-bar">
-            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo" href="/">
-=======
         <nav class="menu-bar">
             <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
->>>>>>> 30af5baab01900e107bdfbc6f85ad9f18fe55b25
-            <div class="menu-items">
-                <div class="menu-list" id="myLinks">
-                    <a href="/">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/schedule">Schedule</a>
-<<<<<<< HEAD
-                    <a href="#">Materials</a>
-                    <a href="/joinus" class="get-in">GET INVOLVED</a>
-                </div>
-                <!--<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i></a>-->
-            </div>
-        </div>
-        <main>
-            <h2>Here are videos of our weekly teachings</h2>
-        </main>
-=======
-                    <a href="/materials">Materials</a>
-                    <a href="/get-involved" class="get-in">GET INVOLVED</a>
-                </div>
-                <a href="javascript:void(0);" class="icon menu-btn" onclick="myFunction()">
-                    <i class="fa fa-bars"></i></a>
-            </div>
-        </nav>
+            <ul class="container" id="menu-items">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/schedule">Schedule</a></li>
+                <li><a href="#">Materials</a></li>
+            </ul>
+            <a href="/joinus" class="get-in">GET INVOLVED</a>
+        </nav>      
+
         <div>
             <ul>
                 {% for file_detail in file_details %}
@@ -52,7 +32,6 @@
                 {% endfor %}
             </ul>
         </div>
->>>>>>> 30af5baab01900e107bdfbc6f85ad9f18fe55b25
         <!-- Link to Bootstrap JavaScript -->
         <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>

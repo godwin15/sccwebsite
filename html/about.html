@@ -9,38 +9,17 @@
         <title> SCC </title>
     </head>
     <body>
-        <div class="menu-bar">
-<<<<<<< HEAD
-            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo" href="/">
-            <div class="menu-items">
-                <div class="menu-list" id="myLinks">
-                    <a href="/">Home</a>
-                    <a href="#">About</a>
-                    <a href="/schedule">Schedule</a>
-                    <a href="/materials">Materials</a>
-                    <a href="/joinus" class="get-in">GET INVOLVED</a>
-                </div>
-                <!--<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i></a>-->
-            </div>
-        </div>
-        <main>
-            <h2>Who we are</h2>
-        </main>
-=======
-                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
-                <div class="menu-items">
-                    <div class="menu-list" id="myLinks">
-                        <a href="/">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/schedule">Schedule</a>
-                    <a href="/materials">Materials</a>
-                    <a href="/get-involved" class="get-in">GET INVOLVED</a>
-                    </div>
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                        <i class="fa fa-bars"></i></a>
-                </div>     
-        </div>
+        <nav class="menu-bar">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
+            <ul class="container" id="menu-items">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="/schedule">Schedule</a></li>
+                <li><a href="/materials">Materials</a></li>
+            </ul>
+            <a href="/joinus" class="get-in">GET INVOLVED</a>
+        </nav>      
+
         <main>
             <h2>Supernatural Community Church</h2>  
             <h1>Abous Us</h1><br>
@@ -78,7 +57,6 @@ Supernatural Community Church is a church ministry where we are devoted to raisi
             </div>
             
         </footer>
->>>>>>> 30af5baab01900e107bdfbc6f85ad9f18fe55b25
         <!-- Link to Bootstrap JavaScript -->
         <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
