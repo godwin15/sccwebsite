@@ -28,9 +28,9 @@ AWS_SECRET_ACCESS_KEY = '-'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = config['ENV']['MAIL_USERNAME']
-app.config['MAIL_PASSWORD'] = config['ENV']['MAIL_PASSWORD']
-app.config['MAIL_DEFAULT_SENDER'] = config['ENV']['MAIL_USERNAME']
+#app.config['MAIL_USERNAME'] = config['ENV']['MAIL_USERNAME']
+#app.config['MAIL_PASSWORD'] = config['ENV']['MAIL_PASSWORD']
+#app.config['MAIL_DEFAULT_SENDER'] = config['ENV']['MAIL_USERNAME']
 
 mail = Mail(app)
 
@@ -90,6 +90,18 @@ def favicon():
 def home_page():
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/schedule')
+def schedule():
+    return render_template('schedule.html')
+
+@app.route('/joinus')
+def joinus_page():
+    return render_template('join_us.html')
+
 @app.route('/offering')
 def offering():
     return render_template('offering.html', public_key=public_key)
@@ -97,14 +109,6 @@ def offering():
 @app.route('/thankyou')
 def thankyou():
     return render_template('thankyou.html')
-
-@app.route('/about')
-def about():
-    return render_template("about.html")
-
-@app.route('/schedule')
-def schedule():
-    return render_template("schedule.html")
 
 @app.route('/get-involved')
 def get_involved():
