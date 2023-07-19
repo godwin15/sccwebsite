@@ -16,13 +16,13 @@ app.secret_key = os.urandom(16)
 config = configparser.ConfigParser()
 config.read('.env')
 
-public_key = "-"
-stripe.api_key = "-"
+public_key = config['ENV']['PUBLIC_KEY']
+stripe.api_key = config['ENV']['STRIPE_KEY']
 
 # Configure Amazon S3 credentials
-S3_BUCKET_NAME = '-'
-AWS_ACCESS_KEY_ID = '-'
-AWS_SECRET_ACCESS_KEY = '-'
+S3_BUCKET_NAME = config['ENV']['S3_BUCKET_NAME']
+AWS_ACCESS_KEY_ID = config['ENV']['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = config['ENV']['AWS_SECRET_ACCESS_KEY']
 
 # Configuration for Flask-Mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
