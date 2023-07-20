@@ -13,20 +13,17 @@
     </head>
 
     <body>
-        <nav class="menu-bar">
-            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
-            <div class="menu-items">
-                <div class="menu-list" id="myLinks">
-                  <a href="/">Home</a>
-                  <a href="/about">About</a>
-                  <a href="/schedule">Schedule</a>
-                  <a href="/materials">Materials</a>
-                  <a href="/get-involved" class="get-in">GET INVOLVED</a>
-                </div>
-                <a href="javascript:void(0);" class="icon menu-btn" onclick="myFunction()">
-                    <i class="fa fa-bars"></i></a>
-            </div>
-        </nav>
+      <nav class="menu-bar">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
+        <ul class="container" id="menu-items">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/materials">Materials</a></li>
+        </ul>
+        <a href="/joinus" class="get-in">GET INVOLVED</a>
+      </nav>       
+
 
         <main>
             <div class="home">

@@ -1,3 +1,27 @@
+/*Body in general*/
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url("/static/images/bible.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (last value) to control the darkness */
+  z-index: -1;
+}
+
+/*Navbar*/
 .menu-bar{
   height: 100px; 
   width: 100%;
@@ -60,27 +84,96 @@
   margin-left: 10rem;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
+
+/*Laptops, Ipads etc */
+@media (max-width: 1000px){ 
+  .logo {
+    margin-left: 1.5rem;
+    width:100px;
+    height: 101px;
+  }
+  .menu-bar {
+    height: 100px;
+    padding:5px;
+  } 
+
+  .menu-bar .container{
+    display: flex;
+    color: black; 
+    font-weight: 600;
+    list-style: none;
+    margin-left: -34px;
+  }
+
+  .menu-bar .get-in {
+    margin-left: 6px;
+    width: 115px;
+    text-align: center;
+    font-size: 15px;
+    height: 25px;
+    margin-right: 50px;
+  }
+  .menu-bar .container li a {
+    font-size: 22px;
+    padding: 3px;
+  } 
 }
-body{
-  background-image: url("/static/images/bible.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
+
+/*Medium sized phone screens*/
+@media (max-width: 600px){
+  .logo {
+    margin-left: 0.5rem;
+    width:62px;
+    height: 64px;
+  }
+  .menu-bar {
+    height: 80px;
+    padding:5px;
+  } 
+
+  .menu-bar .container{
+    display: flex;
+    color: black; 
+    font-weight: 600;
+    list-style: none;
+    margin-left: -34px;
+  }
+
+  .menu-bar .get-in {
+    margin-left: 6px;
+    width: 47px;
+    text-align: center;
+    font-size: 9px;
+    height: 16px;
+    margin-right: 14px;
+  }
+  .menu-bar .container li a {
+    font-size: 13px;
+    padding: 1px;
+  } 
 }
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (last value) to control the darkness */
-  z-index: -1;
-}
+
+/*Smaller phone screens
+@media (max-width: 400px) {
+  .logo {
+    height: 10px;
+    width:9px;
+  }
+  .menu-bar {
+    height: 110px;
+    width: 400px;
+    padding:5px;
+  } 
+  .menu-bar .get-in {
+    margin-left: 30px;
+    width: 5px;
+    margin-right: 1.5rem;
+  }
+  .menu-bar .container li a {font-size: 10px;} 
+}*/
+
+
+/*Main*/
 main{
   color: white;
   display: flex;
@@ -90,77 +183,23 @@ main{
   height: 120vh;
   text-align: center;
 }
-@media (max-width: 1200px) {
-    .get-in {
-      margin-left: 30px;
-      width: 150px;
-  }
-    .menu-items a{ 
-        padding: 5px;
-        font-size: 24px;
-    } 
+.about{
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 20px;
+  margin: 5px;
+  width: 80%;
+  padding: 5px;
 }
-@media (max-width: 1000px){ 
-  .get-in {
-      margin-left: 20px;
-      width: 150px;
-  }
-  .menu-items a {
-      padding: 5px;
-      font-size: 20px;
-  }
-}
-@media (max-width: 877px){
-  .logo {
-     margin-right: auto;
-     margin-bottom: 0;
-     margin-top:5px;
-     width:100px;
- }
-  .menu-bar {
-    height: 110px;
-    padding:5px;
-  } 
-  .menu-items a {font-size: 18px;} 
-}
-@media (max-width: 768px) {
 
-  #myLinks {display: none; width: 100%; background-color: rgb(172, 196, 217);}
-  .menu-items a {font-size: 16px;} 
-  .logo {margin-bottom: auto;}
-  .menu-items a.icon {
-    display: block; position: relative;
-    margin-bottom: auto; margin-top: 15px;
-    margin-right: 20px;
-  }
-  .menu-bar{height: auto; }
-  .get-in {margin-left:0;}
-}
+/*Footer*/
 footer{
   color: white; height: 50px;
   width: 100%; background-color: black;
   justify-content: center;text-align: center;
+  margin-top: 0;
 }
-
-#aboutid {
-  color: white;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 120vh;
-  text-align: center;
-}
-#scheduleid {
-  color: white;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 120vh;
-  text-align: center;
-}
-footer{margin-top: auto;}
+footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;}
 
 .grid-container {
   color:white;
@@ -197,9 +236,8 @@ footer{margin-top: auto;}
   	gap: 0px 0px;
   	grid-template-columns: auto;
 	}}
-footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
-text-align: center;}
 
+/*Mail buttons*/
 .mail, .offering{
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
@@ -230,6 +268,7 @@ text-align: center;}
   width: 100%;
   height: 100%;
 }
+
 @media(max-width:500px){
   .offering form{
     display: flex;
@@ -237,13 +276,6 @@ text-align: center;}
     justify-content: center;
     align-items: center;
   }
-}
-.about{
-  background-color: rgba(0, 0, 0, 0.4);
-  font-size: 20px;
-  margin: 5px;
-  width: 80%;
-  padding: 5px;
 }
 
 .mailing {
@@ -270,6 +302,7 @@ margin: 20px;}
   font-weight: bold;
   padding: 12px 20px;
   margin: 8px 15px;}
+
 @media(max-width: 550px){
   .mailing form{
       display:flex;
