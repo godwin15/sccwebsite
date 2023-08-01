@@ -131,7 +131,7 @@ def offering():
 
 @app.route('/thankyou')
 def thankyou():
-    return render_template('thankyou.html', title='Thanks You')
+    return render_template('thankyou.html', title='Thank you')
 
 @app.route('/payment', methods=['POST'])
 def payment():
