@@ -1,28 +1,28 @@
+/* The new home STYLE */
 .home{
-    color: white;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/static/images/bg4.jpg");
+    background-size: cover; 
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center; 
+    height: 95vh;
+    width: 100%; 
 }
-.mission{
-    font-size: 46px;
+
+.home h1 {
+    font-size: 100px; 
+    font-weight: bolder;
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow to the text */
 }
-.socials{
-    margin-top: 100px;
-    margin: 100px;
-}
-.about{
-    margin: 20px;
-    color:aliceblue;
-    display: none;
-    background-color: rgba(73, 64, 113, 0.6); 
-    width: 70%;
-    margin-bottom: 30px;
-}
-.socials a{text-decoration: none; color: black;}
-#socials{color:white; font-size: large; height: auto;width: 100%; margin-bottom: 20px ;}
-@media (max-width:500px) {
-    .mission{
-        font-size: 26px;
+@media screen and (max-width: 768px) {
+    .home {
+        height: 65vh; /* Adjust the height as needed */
     }
-    .socials{
-        display: flex; flex-direction: column;
+    .home h1 {
+        font-size: 3em; /* This size is for mobile responsiveness */
     }
 }

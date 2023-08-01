@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +14,32 @@
     </head>
 
     <body>
-        <nav class="menu-bar">
-            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
-            <ul class="container" id="menu-items">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/schedule">Schedule</a></li>
-                <li><a href="/materials">Materials</a></li>
-            </ul>
-            <a href="/joinus" class="get-in">GET INVOLVED</a>
-        </nav>       
+        <header>
+            <nav class="navbar">
+                <a href="/" class="nav-branding"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo"></a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/materials" class="nav-link">Resources</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a href="/give-online" class="nav-link" id="giveonline">GIVE ONLINE</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                     <span class="bar"></span>
+                     <span class="bar"></span>
+                     <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
 
-
-        <main>
+        <main class="page">
             <div class="home">
                 <section>
                     <div class="mission">
@@ -33,7 +47,6 @@
                     </div>
                 </section>
             </div>
-
         </main>
         <footer>
             <div class="grid-container">
@@ -57,7 +70,6 @@
             </div>
             
         </footer>
-
         <!-- Scripts -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
         <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>

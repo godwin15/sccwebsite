@@ -1,104 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://js.stripe.com/v3/"></script>
-        <title> Supporting SCC </title>
-    </head>
-
-    <body>
-      <nav class="menu-bar">
-        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
-        <ul class="container" id="menu-items">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/schedule">Schedule</a></li>
-            <li><a href="/materials">Materials</a></li>
-        </ul>
-        <a href="/joinus" class="get-in">GET INVOLVED</a>
-      </nav>       
+{% extends "mainTemplate.html" %}
 
 
-        <main>
-            <div class="home">
-                <section>
-                    <div class="mission">
-                        <h1>Supernatural Community Church</h1>
-                    </div><br>
-                    <div class="offering">
-                        <h1>How much would you like to give?</h1>
-                        <form id="payment-form" action="{{url_for('payment')}}" method="POST">
-                          <input id="amount-input" type="number" name="amount" step="0.01" min="0.01" required placeholder="Enter amount">
-                          <button type="button" onclick="openStripeCheckout()">Proceed to Give</button>
-                        </form>
-                      </div>
-                </section>
-            </div>
-
-        </main>
-        <footer>
-            <div class="grid-container">
-                <div class="grid-item">
-                <h2>Contact us via</h2>
-                <h4>Phone: 585-210-5038</h4> 
-                <h4>Email: Supernaturalcommunitychurch@gmail.com</h4>
-                <p>Bringing Hope of the light of the</p>
-                <p>Gospel to every nation.</p>
-                </div>
-                <div class="grid-item">
-                    <div>
-                        <h3>Support the mission by giving through</h3>
-                        <div class="grid-container2">
-                        <p>Supporting the mission helps to reach more people hence lighting the whole 
-                        </p>
-                        <p> world with the Gospel of Jesus Christ</p>
-                        
-                        </div>
-                    </div>
-                </div> 
-                
-            </div>
-            
-        </footer>
-
-        <!-- Scripts -->
-        <script>
-            function openStripeCheckout() {
-              var amount = document.getElementById("amount-input").value;
-      
-              // Create a Stripe Checkout Session
-              fetch("/create-checkout-session", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  amount: amount * 100,
-                }),
-              })
-                .then(function (response) {
-                  return response.json();
-                })
-                .then(function (session) {
-                  var stripe = Stripe('{{public_key}}');
-                  stripe.redirectToCheckout({ sessionId: session.id })
-                    .then(function (result) {
-                      // Handle any errors during the redirect to checkout
-                      console.error(result.error.message);
-                    });
-                })
-                .catch(function (error) {
-                  console.error("Error:", error);
-                });
-            }
-          </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
-        <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
-    </body>
-</html>
+{% block content %}
+<div class="give-online">
+  <section>
+      <div class="mission">
+          <h1>Supernatural Community Church</h1>
+      </div><br>
+      <h1>How much would you like to give?</h1>
+      <div class="offering">
+          <form id="payment-form" action="{{url_for('payment')}}" method="POST">
+            <input id="amount-input" type="number" name="amount" step="0.01" min="0.01" required placeholder="Enter amount">
+            <button type="button" onclick="openStripeCheckout()">Proceed to Give</button>
+          </form>
+      </div>
+  </section>
+</div>
+{% endblock %}

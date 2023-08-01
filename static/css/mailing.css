@@ -1,0 +1,44 @@
+.mail{
+  display: flex; flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 95vh;
+  } 
+  .mailing {
+    background-color: rgba(250, 250, 250, 0.9);
+    display: flex; /* Set the display to flex */
+    align-items: center; /* Center the content vertically */
+    justify-content: center;
+    border-radius: 5px;
+    padding: 25px 25px;
+  }
+  .mailing form{ display:block; margin: 10px 10px;}
+  .mailing input{
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 15px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    border-radius:15px;
+    outline: none;
+  }
+  .mailing input[type=text]:focus {
+    background-color: lightblue;
+  }
+  .mailing button{width:40%; border-radius:15px;
+    background-color: rgba(211, 191, 191, 0.8);
+    font-weight: bold;
+    padding: 12px 20px;
+    margin: 8px 15px;
+  }
+
+  @media(max-width: 550px){
+    .mailing form{
+        display:flex;
+        flex-direction:column;}
+        .mailing input, .mailing button{width: 100%;}
+    }
+  
+  
+  

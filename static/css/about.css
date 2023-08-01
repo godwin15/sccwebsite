@@ -1,0 +1,18 @@
+.about{
+    padding: 20px 20px 30px 30px;
+    height: 95vh;
+}
+.grid-about{
+    display: grid; margin-top: 20px;
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+.grid-about > div{
+    text-align: center; 
+    background-color: rgba(53, 53, 183, 0.912);
+    padding: 20px; margin: 20px;border-radius: 20px; 
+    height: 250px;color: white;
+}
+@media (max-width:850px) {
+    .grid-about{grid-template-columns:auto;gap: 1px;}
+  }

@@ -2,8 +2,6 @@ import os
 from flask import Flask, request, render_template,send_from_directory, redirect, url_for, flash
 import stripe
 import boto3
-from PyPDF2 import PdfReader
-from io import BytesIO
 from flask_mail import Mail, Message
 import configparser
 import re
@@ -20,6 +18,7 @@ public_key = config['ENV']['PUBLIC_KEY']
 stripe.api_key = config['ENV']['STRIPE_KEY']
 
 # Configure Amazon S3 credentials
+BUCKET_NAME = 'supernaturalpics'
 S3_BUCKET_NAME = config['ENV']['S3_BUCKET_NAME']
 AWS_ACCESS_KEY_ID = config['ENV']['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = config['ENV']['AWS_SECRET_ACCESS_KEY']
@@ -28,14 +27,15 @@ AWS_SECRET_ACCESS_KEY = config['ENV']['AWS_SECRET_ACCESS_KEY']
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-#app.config['MAIL_USERNAME'] = config['ENV']['MAIL_USERNAME']
-#app.config['MAIL_PASSWORD'] = config['ENV']['MAIL_PASSWORD']
-#app.config['MAIL_DEFAULT_SENDER'] = config['ENV']['MAIL_USERNAME']
+app.config['MAIL_USERNAME'] = config['ENV']['MAIL_USERNAME']
+app.config['MAIL_PASSWORD'] = config['ENV']['MAIL_PASSWORD']
+app.config['MAIL_DEFAULT_SENDER'] = config['ENV']['MAIL_USERNAME']
 
 mail = Mail(app)
 
+
 # Helper function to generate signed URLs for the PDF files
-def generate_signed_url(file):
+def generate_signed_url(file, page=1):
     s3_client = boto3.client(
         's3',
         aws_access_key_id=AWS_ACCESS_KEY_ID,
@@ -43,38 +43,65 @@ def generate_signed_url(file):
     )
     signed_url = s3_client.generate_presigned_url(
         'get_object',
-        Params={'Bucket': S3_BUCKET_NAME, 'Key': file},
+        Params={
+            'Bucket': S3_BUCKET_NAME,
+            'Key': file,
+            'ResponseContentDisposition': 'inline',
+            'Range': f'bytes={page*1024}-',  # Start from the specified page
+        },
         ExpiresIn=3600  # URL expiration time in seconds
     )
     return signed_url
 
-# Helper function to retrieve the list of PDF files from Amazon S3
-def get_pdf_files_from_s3():
+# Helper function to generate signed URLs for the PDF files
+def generate_first_page_url(file, bucket):
     s3_client = boto3.client(
         's3',
         aws_access_key_id=AWS_ACCESS_KEY_ID,
         aws_secret_access_key=AWS_SECRET_ACCESS_KEY
     )
-    response = s3_client.list_objects_v2(Bucket=S3_BUCKET_NAME, Prefix='', Delimiter='/')
-    files = [obj['Key'] for obj in response['Contents'] if obj['Key'].endswith('.pdf')]
+    signed_url = s3_client.generate_presigned_url(
+        'get_object',
+        Params={'Bucket': bucket, 'Key': file, 'ResponseContentDisposition': 'inline',},
+        ExpiresIn=3600  # URL expiration time in seconds
+    )
+    return signed_url
+
+
+def get_files_from_s3():
+    s3_client = boto3.client(
+        's3',
+        aws_access_key_id=AWS_ACCESS_KEY_ID,
+        aws_secret_access_key=AWS_SECRET_ACCESS_KEY
+    )
+    
+    # get the list of pdf files
+    response_pdf = s3_client.list_objects_v2(Bucket=S3_BUCKET_NAME, Prefix='', Delimiter='/')
+    pdf_files = [obj['Key'] for obj in response_pdf['Contents'] if obj['Key'].endswith('.pdf')]
+    
+    # get the list of jpg files
+    response_jpg = s3_client.list_objects_v2(Bucket=BUCKET_NAME, Prefix='', Delimiter='/')
+    jpg_files = [obj['Key'] for obj in response_jpg['Contents'] if obj['Key'].endswith('.png')]
+    
     file_details = []
-    for file in files:
-        signed_url = generate_signed_url(file)
-        obj = s3_client.get_object(Bucket=S3_BUCKET_NAME, Key=file)
-        pdf_data = obj['Body'].read()
-        pdf_file = BytesIO(pdf_data)
-        pdf_reader = PdfReader(pdf_file)
-        metadata = pdf_reader.metadata
-        print("Metadata for file:", file)
-        print(metadata)  # Print the metadata dictionary
-        title = metadata.get('/x-amz-meta-title', metadata.get('/Title', file))
-        message = metadata.get('/x-amz-meta-message', '')
+    for pdf_file in pdf_files:
+        signed_url = generate_signed_url(pdf_file)
+
+        # generate the symbol jpg file for each pdf
+        # let's assume that each pdf file has a corresponding jpg file with the same name but different extension
+        base_name = os.path.splitext(pdf_file)[0]
+        jpg_file = f'{base_name}.png'
+        if jpg_file in jpg_files:
+            symbol_url = generate_first_page_url(jpg_file, bucket=BUCKET_NAME)
+        else:
+            symbol_url = None  # default symbol if no corresponding jpg found
+
         file_details.append({
-            'file': file,
-            'title': title,
-            'message': message,
-            'signed_url': signed_url
+            'file': pdf_file,
+            'signed_url': signed_url,
+            'symbol': symbol_url,
         })
+
     return file_details
 
 def validate_email(email):
@@ -88,31 +115,23 @@ def favicon():
 
 @app.route('/')
 def home_page():
-    return render_template('index.html')
+    return render_template('index.html', title='Supernatural Community Church')
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
-
-@app.route('/schedule')
-def schedule():
-    return render_template('schedule.html')
+    return render_template('about.html', title='about SCC')
 
 @app.route('/joinus')
 def joinus_page():
-    return render_template('join_us.html')
+    return render_template('join_us.html', title='join SCC')
 
-@app.route('/offering')
+@app.route('/give-online')
 def offering():
-    return render_template('offering.html', public_key=public_key)
+    return render_template('offering.html', public_key=public_key, title='Give to SCC')
 
 @app.route('/thankyou')
 def thankyou():
-    return render_template('thankyou.html')
-
-@app.route('/get-involved')
-def get_involved():
-    return render_template("join_us.html")
+    return render_template('thankyou.html', title='Thanks You')
 
 @app.route('/payment', methods=['POST'])
 def payment():
@@ -166,21 +185,21 @@ def process_email():
             msg.body = f"{firstName} {lastName} with Emaail: {email} has joined our mailing list \n\n Thank you"
             mail.send(msg)
             flash("Thank you for subscribing! We have sent you a confirmation email.")
-            return redirect(url_for('about')) 
+            return redirect(url_for('')) 
         except Exception as e:
             print("Error sending email:", e)
             traceback.print_exc()
             flash("Oops! Something went wrong. Please try again later.")
-            return redirect(url_for('about')) 
+            return redirect(url_for('')) 
     else:
         flash("Invalid email address. Please provide a valid email.")
-        return redirect(url_for('get-involved')) 
+        return redirect(url_for('joinus')) 
 
 # Index route to display the uploaded PDF files
 @app.route('/materials')
 def materials():
-    file_details = get_pdf_files_from_s3()
-    return render_template('materials.html', file_details=file_details)
+    file_details = get_files_from_s3()
+    return render_template('materials.html', file_details=file_details, title='Resources')
 
 if __name__ == '__main__':
     app.run(debug=True)

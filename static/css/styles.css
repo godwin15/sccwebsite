@@ -1,205 +1,41 @@
-/*Body in general*/
-html, body {
-  margin: 0;
+*{
   padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
 body{
-  background-image: url("/static/images/bible.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-}
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  background-color: rgb(121, 165, 198);
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (last value) to control the darkness */
-  z-index: -1;
 }
 
-/*Navbar*/
-.menu-bar{
-  height: 100px; 
-  width: 100%;
-  contain: content;
-  background-color: whitesmoke;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-.menu-bar .container{
-  display: flex;
-  color: black; 
-  font-weight: 600;
-  list-style: none;
-  display: flex;
-}
-
-.menu-bar .container li a {
-  color: black;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 20px;
-  font-weight: 600;
-  padding: 10px;
-}
-
-.menu-bar .container li a:hover {
-  color: #ffca28;
-}
-
-.menu-bar .get-in {color: white;
-  background-color: rgb(63, 63, 156);
-  width: 200px;
-  height: 20px;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  text-align: center;
-  margin-right: 15rem;
-}
-
-.menu-bar .get-in:hover{
-  cursor: pointer;
-
-}
-
-#menu-items a:hover { 
-  background-color: rgb(63, 63, 156);
-  color:white;
-}
-
-.logo {
-  width: 92px;
-  height: 90px;
-  margin-left: 10rem;
-}
-
-
-/*Laptops, Ipads etc */
-@media (max-width: 1000px){ 
-  .logo {
-    margin-left: 1.5rem;
-    width:100px;
-    height: 101px;
-  }
-  .menu-bar {
-    height: 100px;
-    padding:5px;
-  } 
-
-  .menu-bar .container{
-    display: flex;
-    color: black; 
-    font-weight: 600;
-    list-style: none;
-    margin-left: -34px;
-  }
-
-  .menu-bar .get-in {
-    margin-left: 6px;
-    width: 115px;
-    text-align: center;
-    font-size: 15px;
-    height: 25px;
-    margin-right: 50px;
-  }
-  .menu-bar .container li a {
-    font-size: 22px;
-    padding: 3px;
-  } 
-}
-
-/*Medium sized phone screens*/
-@media (max-width: 600px){
-  .logo {
-    margin-left: 0.5rem;
-    width:62px;
-    height: 64px;
-  }
-  .menu-bar {
-    height: 80px;
-    padding:5px;
-  } 
-
-  .menu-bar .container{
-    display: flex;
-    color: black; 
-    font-weight: 600;
-    list-style: none;
-    margin-left: -34px;
-  }
-
-  .menu-bar .get-in {
-    margin-left: 6px;
-    width: 47px;
-    text-align: center;
-    font-size: 9px;
-    height: 16px;
-    margin-right: 14px;
-  }
-  .menu-bar .container li a {
-    font-size: 13px;
-    padding: 1px;
-  } 
-}
-
-/*Smaller phone screens
-@media (max-width: 400px) {
-  .logo {
-    height: 10px;
-    width:9px;
-  }
-  .menu-bar {
-    height: 110px;
-    width: 400px;
-    padding:5px;
-  } 
-  .menu-bar .get-in {
-    margin-left: 30px;
-    width: 5px;
-    margin-right: 1.5rem;
-  }
-  .menu-bar .container li a {font-size: 10px;} 
-}*/
-
-
-/*Main*/
 main{
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 120vh;
   text-align: center;
 }
-.about{
-  background-color: rgba(0, 0, 0, 0.4);
-  font-size: 20px;
-  margin: 5px;
-  width: 80%;
-  padding: 5px;
+.page{
+  position: relative; 
+  height: auto; /* adjust 60px to the actual height of your navbar */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* centers the content vertically */
+  margin-top: 100px; /* adjust 60px to the actual height of your navbar */
+  overflow: auto;
 }
-
-/*Footer*/
+              /*Footer styles */
 footer{
+  margin-top: auto;
+  bottom: 0;
   color: white; height: 50px;
   width: 100%; background-color: black;
   justify-content: center;text-align: center;
   margin-top: 0;
 }
-footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;}
 
 .grid-container {
   color:white;
@@ -237,79 +73,7 @@ footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
   	grid-template-columns: auto;
 	}}
 
-/*Mail buttons*/
-.mail, .offering{
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  color:white;
-  border-radius:10px;
-}
-.mail, .offering button{
-  background-color: rgba(211, 191, 191, 0.8); font-weight: bold;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 12px;
-  border-radius:10px;
-  font-size: 15px;
-  text-align: center;
-}
-.offering input{
-  padding: 12px;
-  border-radius:10px;
-}
+footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
+text-align: center;}
 
-.pdf-subview {
-  width: 100%;
-  height: 975px;
-  border: 1px solid #ccc;
-  overflow: hidden;
-}
 
-.pdf-subview iframe {
-  width: 100%;
-  height: 100%;
-}
-
-@media(max-width:500px){
-  .offering form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.mailing {
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex; /* Set the display to flex */
-  align-items: center; /* Center the content vertically */
-  justify-content: center;
-  border-radius: 5px;
-  width: 90%;
-}
-.mailing form{ display:block; 
-margin: 20px;}
-.mailing input{
-  width: 40%;
-  padding: 12px 20px;
-  margin: 8px 15px;
-  box-sizing: border-box;
-  border: 1px solid #555;
-  border-radius:15px;
-  outline: none;
-}
-.mailing button{width:40%; border-radius:15px;
-  background-color: rgba(211, 191, 191, 0.8);
-  font-weight: bold;
-  padding: 12px 20px;
-  margin: 8px 15px;}
-
-@media(max-width: 550px){
-  .mailing form{
-      display:flex;
-      flex-direction:column;}
-      .mailing input, .mailing button{width: 100%;}
-  }
-
-.mailing input[type=text]:focus {
-  background-color: lightblue;
-}

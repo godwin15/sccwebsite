@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/give-online.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mailing.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/materials.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+        <script src="https://js.stripe.com/v3/"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title> {{title}} </title>
+    </head>
+
+    <body>
+        <header>
+            <!-- Navigation Bar -->
+            <nav class="navbar">
+                <a href="/" class="nav-branding"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo"></a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/materials" class="nav-link">Resources</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a href="/give-online" class="nav-link" id="giveonline">GIVE ONLINE</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
+        <main class="page">
+            {% block content %}
+            
+            {% endblock %}
+        </main>
+    <!--Footer-->
+        <footer>
+            <div class="grid-container">
+                <div class="grid-item">
+                <h2>Contact us via</h2>
+                <h4>Phone: 585-210-5038</h4> 
+                <h4>Email: Supernaturalcommunitychurch@gmail.com</h4>
+                <p>Lighting up the dark places</p>
+                </div>
+                <div class="grid-item">
+                    <div>
+                        <h3>Support the mission by giving through</h3>
+                        <div class="grid-container2">
+                            <a href="/joinus">
+                                <button>Join Us</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>   
+            </div> 
+        </footer>
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+            effect: "flip",
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            });
+        </script>
+        <!-- Scripts -->
+        <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
+    </body>
+</html>
