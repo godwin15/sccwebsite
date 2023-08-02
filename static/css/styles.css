@@ -76,4 +76,14 @@ footer{
 footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
 text-align: center;}
 
+/* Media*/
+.media{
+  display: flex; justify-content: center; align-items: center;
+  gap: 10px;
+}
+.media a{
+  text-decoration: none;
+  color: white;
+}
+
 
