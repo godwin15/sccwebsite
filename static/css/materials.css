@@ -50,6 +50,11 @@
     height: 80vh;
   }
 }
+.message{
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
 @media (max-width:480px) {
   .overlay {
       width: 100%;

@@ -1,0 +1,59 @@
+.container-worship{
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 245, 245, 0.733);
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+.highlight{
+    color: rgb(17, 80, 17);
+    font-size: 40px; font-weight: bolder;
+    padding: 10px;
+}
+.grid-time{
+    display: grid;
+    gap: 40px;
+    grid-template-columns: auto auto;
+}
+.grid-time-item{
+    border: 1px solid rgb(160, 117, 25);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    height: auto; font-weight: bold;
+    color: rgb(91, 69, 22);
+}
+.location{
+    padding: 20px; color: rgb(91, 69, 22);
+    display: flex;
+    gap: 10px;
+}
+.icon {
+    box-sizing: border-box;
+      position: relative;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 5px solid rgb(111, 121, 43);
+      border-radius: 100%;
+  }
+  
+  .icon::after {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin: 1px 0 0 -6px;
+      display: block;
+      content: '';
+      border: 6px solid transparent;
+      border-top: 10px solid rgb(111, 121, 43);
+      border-bottom: none;
+  }
+@media (max-width:540px) {
+    .grid-time{
+        grid-template-columns: auto;
+        gap: 20px;
+    }
+}

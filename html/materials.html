@@ -4,6 +4,7 @@
 {% block content %}
 <!-- Swiper -->
 <div class="materials">
+  {% if file_details %}
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
       {% for file_detail in file_details %}
@@ -32,10 +33,13 @@
           <div class="overlay"><a href="{{ file_detail.signed_url }}" target="_blank"><div class="btn">Click here to read more</div></a></div>
         </div>
     {% endfor %}
-  </div>
-    <div class="swiper-button-next swipebtn"></div>
-    <div class="swiper-button-prev swipebtn"></div>
-    <div class="swiper-pagination swipebtn"></div>
-  </div>
+      </div>
+        <div class="swiper-button-next swipebtn"></div>
+        <div class="swiper-button-prev swipebtn"></div>
+        <div class="swiper-pagination swipebtn"></div>
+      </div>
+      {% else %}
+      <div class="message">There is no internet connection, please try again later.</div>
+    {% endif %}
 </div>
 {% endblock %} 

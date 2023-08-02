@@ -69,40 +69,46 @@ def generate_first_page_url(file, bucket):
 
 
 def get_files_from_s3():
-    s3_client = boto3.client(
-        's3',
-        aws_access_key_id=AWS_ACCESS_KEY_ID,
-        aws_secret_access_key=AWS_SECRET_ACCESS_KEY
-    )
-    
-    # get the list of pdf files
-    response_pdf = s3_client.list_objects_v2(Bucket=S3_BUCKET_NAME, Prefix='', Delimiter='/')
-    pdf_files = [obj['Key'] for obj in response_pdf['Contents'] if obj['Key'].endswith('.pdf')]
-    
-    # get the list of jpg files
-    response_jpg = s3_client.list_objects_v2(Bucket=BUCKET_NAME, Prefix='', Delimiter='/')
-    jpg_files = [obj['Key'] for obj in response_jpg['Contents'] if obj['Key'].endswith('.png')]
-    
-    file_details = []
-    for pdf_file in pdf_files:
-        signed_url = generate_signed_url(pdf_file)
+    try:
+        s3_client = boto3.client(
+            's3',
+            aws_access_key_id=AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=AWS_SECRET_ACCESS_KEY
+        )
+        
+        # get the list of pdf files
+        response_pdf = s3_client.list_objects_v2(Bucket=S3_BUCKET_NAME, Prefix='', Delimiter='/')
+        pdf_files = [obj['Key'] for obj in response_pdf['Contents'] if obj['Key'].endswith('.pdf')]
+        
+        # get the list of jpg files
+        response_jpg = s3_client.list_objects_v2(Bucket=BUCKET_NAME, Prefix='', Delimiter='/')
+        jpg_files = [obj['Key'] for obj in response_jpg['Contents'] if obj['Key'].endswith('.png')]
+        
+        file_details = []
+        for pdf_file in pdf_files:
+            signed_url = generate_signed_url(pdf_file)
 
-        # generate the symbol jpg file for each pdf
-        # let's assume that each pdf file has a corresponding jpg file with the same name but different extension
-        base_name = os.path.splitext(pdf_file)[0]
-        jpg_file = f'{base_name}.png'
-        if jpg_file in jpg_files:
-            symbol_url = generate_first_page_url(jpg_file, bucket=BUCKET_NAME)
-        else:
-            symbol_url = None  # default symbol if no corresponding jpg found
+            # generate the symbol jpg file for each pdf
+            # let's assume that each pdf file has a corresponding jpg file with the same name but different extension
+            base_name = os.path.splitext(pdf_file)[0]
+            jpg_file = f'{base_name}.png'
+            if jpg_file in jpg_files:
+                symbol_url = generate_first_page_url(jpg_file, bucket=BUCKET_NAME)
+            else:
+                symbol_url = None  # default symbol if no corresponding jpg found
 
-        file_details.append({
-            'file': pdf_file,
-            'signed_url': signed_url,
-            'symbol': symbol_url,
-        })
+            file_details.append({
+                'file': pdf_file,
+                'signed_url': signed_url,
+                'symbol': symbol_url,
+            })
 
-    return file_details
+        return file_details
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+
 
 def validate_email(email):
     #validation logic
