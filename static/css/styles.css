@@ -36,54 +36,57 @@ footer{
   justify-content: center;text-align: center;
   margin-top: 0;
 }
+footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;}
 
 .grid-container {
   color:white;
   display: grid;
-  gap: 80px 80px;
-  grid-template-columns: auto auto;
-  background-color: #071119;
+  gap: 20px 20px;
+  grid-template-columns: auto auto auto;
+  background-color: #040404;
   padding: 5px;
 }
-.grid-container2 {
+.grid-container2 { 
   display: grid;
   gap: 20px 70px;
   grid-template-columns: auto;
   padding: 10px;
 }
 .grid-item {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0);
   padding: 10px;
-  border-radius:10px;
   text-align: center;
+}
+.grid-item img{
+  max-width:100%; height:auto;
+  top: 0; left: 0;
 }
 .grid-container2 a{text-decoration: none;}
 .grid-container2 button {
   background-color: rgba(211, 191, 191, 0.8); font-weight: bold;
   border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
+  padding: 10px;
   border-radius:10px;
   font-size: 15px;
   text-align: center;
 }
-@media (max-width:1050px){
-  .grid-container2 button {padding: 15px;}
-	.grid-container {
-  	gap: 0px 0px;
-  	grid-template-columns: auto;
-	}}
 
-footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
-text-align: center;}
 
-/* Media*/
+/* Media twitter, insta, fb*/
 .media{
   display: flex; justify-content: center; align-items: center;
-  gap: 10px;
+  column-gap: 10px;
 }
 .media a{
   text-decoration: none;
   color: white;
 }
 
+@media (max-width:1050px){
+  .grid-container2 button {padding: 15px;}
+	.grid-container {
+  	gap: 0px 0px;
+  	grid-template-columns: auto;
+	}}
 
