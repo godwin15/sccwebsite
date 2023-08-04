@@ -9,20 +9,12 @@ body{
   height: 100%;
 }
 
-main{
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 .page{
-  position: relative; 
+  position: relative; color: white;
   height: auto; /* adjust 60px to the actual height of your navbar */
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: flex; flex-direction: column;
+  justify-content: center; text-align: center;
   align-items: center; /* centers the content vertically */
   margin-top: 100px; /* adjust 60px to the actual height of your navbar */
   overflow: auto;
