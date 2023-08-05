@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/materials.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/worship.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
         <!-- Link Swiper's CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
         <script src="https://js.stripe.com/v3/"></script>
@@ -67,9 +68,18 @@
                     <div>
                         <div class="grid-container2">
                             <h3>Click to join our mail list</h3>
-                            <a href="/joinus">
-                                <button>Subscribe</button>
-                            </a>
+                                <button onclick="openForm()">Subscribe</button>
+                                <div class="form-popup" id="myForm">
+                                    <form id="mail-form" method="POST" action="/process_email" class="form-container">
+                                      <h1>Join Our Mail List</h1>
+                                      <input type="text" placeholder="First Name" name="firstName" required>
+                                
+                                      <input type="text" placeholder="Last Name" name="lastName" required>
+                                      <input type="text" placeholder="Email Address" name="email" required>
+                                      <button type="submit" class="btn">Join Us</button>
+                                      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                                    </form>
+                                  </div>
                             <h5>Stream our messages on;</h5>
                             <div class="media">
                                 <i class="fa fa-podcast" style="font-size:30px;"></i>
@@ -111,7 +121,17 @@
                 prevEl: ".swiper-button-prev",
             },
             });
-        </script>
+        </script>\
+        <!--Form Script-->
+        <script>
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+            
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+            </script>
         <!-- Scripts -->
         <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
     </body>

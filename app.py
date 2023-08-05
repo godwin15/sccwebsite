@@ -118,9 +118,9 @@ def validate_email(email):
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
+@app.route('/home')
 @app.route('/')
-def home_page():
+def home():
     return render_template('index.html', title='Supernatural Community Church')
 
 @app.route('/about')
@@ -191,15 +191,15 @@ def process_email():
             msg.body = f"{firstName} {lastName} with Emaail: {email} has joined our mailing list \n\n Thank you"
             mail.send(msg)
             flash("Thank you for subscribing! We have sent you a confirmation email.")
-            return redirect(url_for('')) 
+            return redirect(url_for('home')) 
         except Exception as e:
             print("Error sending email:", e)
             traceback.print_exc()
             flash("Oops! Something went wrong. Please try again later.")
-            return redirect(url_for('')) 
+            return redirect(url_for('home')) 
     else:
         flash("Invalid email address. Please provide a valid email.")
-        return redirect(url_for('joinus')) 
+        return redirect(url_for('home')) 
 
 # Index route to display the uploaded PDF files
 @app.route('/materials')
