@@ -2,8 +2,13 @@
   display: flex; flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: auto;
   width: 100%;
+  background-color: whitesmoke; color: #0a1032;
+  margin-bottom: 50px;
+}
+.materials h2{
+  padding: 10px;
 }
 .swiper {
     width: 400px;

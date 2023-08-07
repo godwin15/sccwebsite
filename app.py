@@ -121,15 +121,12 @@ def favicon():
 @app.route('/home')
 @app.route('/')
 def home():
-    return render_template('index.html', title='Supernatural Community Church')
+    file_details = get_files_from_s3()
+    return render_template('index.html', title='Supernatural Community Church', file_details=file_details)
 
 @app.route('/about')
 def about():
     return render_template('about.html', title='about SCC')
-
-@app.route('/joinus')
-def joinus_page():
-    return render_template('join_us.html', title='join SCC')
 
 @app.route('/give-online')
 def offering():
