@@ -58,7 +58,7 @@
 .message{
   font-size: 30px;
   font-weight: bold;
-  color: white;
+  color: #0a1032;
 }
 @media (max-width:480px) {
   .overlay {

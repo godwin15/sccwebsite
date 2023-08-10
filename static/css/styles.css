@@ -57,14 +57,18 @@ footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
 }
 .grid-container2 a{text-decoration: none;}
 .grid-container2 button {
-  background-color: rgba(211, 191, 191, 0.8); font-weight: bold;
+  background-color: rgba(225, 209, 209); font-weight: bold;
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 10px;
+  cursor: pointer;
+  opacity: 0.8;
   border-radius:10px;
   font-size: 15px;
   text-align: center;
 }
-
+.grid-container2 button:hover{
+  opacity: 1;
+}
 
 /* Media twitter, insta, fb*/
 .media{

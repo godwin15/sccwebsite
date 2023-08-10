@@ -1,11 +1,8 @@
 import os
-from flask import Flask, request, render_template,send_from_directory, redirect, url_for, flash
+from flask import Flask, request, render_template,send_from_directory, redirect, url_for
 import stripe
 import boto3
-from flask_mail import Mail, Message
 import configparser
-import re
-import traceback
 
 
 app = Flask(__name__, template_folder="html/", static_url_path="/static")
@@ -22,17 +19,6 @@ BUCKET_NAME = 'supernaturalpics'
 S3_BUCKET_NAME = config['ENV']['S3_BUCKET_NAME']
 AWS_ACCESS_KEY_ID = config['ENV']['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = config['ENV']['AWS_SECRET_ACCESS_KEY']
-
-# Configuration for Flask-Mail
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = config['ENV']['MAIL_USERNAME']
-app.config['MAIL_PASSWORD'] = config['ENV']['MAIL_PASSWORD']
-app.config['MAIL_DEFAULT_SENDER'] = config['ENV']['MAIL_USERNAME']
-
-mail = Mail(app)
-
 
 # Helper function to generate signed URLs for the PDF files
 def generate_signed_url(file, page=1):
@@ -109,16 +95,10 @@ def get_files_from_s3():
         print(f"An error occurred: {e}")
         return []
 
-
-def validate_email(email):
-    #validation logic
-    email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
-    return re.match(email_pattern, email)
-
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
-@app.route('/home')
+
 @app.route('/')
 def home():
     file_details = get_files_from_s3()
@@ -148,7 +128,7 @@ def payment():
         customer=customer.id,
         amount=amount, # 19.99
         currency='usd',
-        description='Donation'
+        description='Giving to SCC'
     )
     return redirect(url_for('thankyou'))
 
@@ -163,7 +143,7 @@ def create_checkout_session():
                 'currency': 'usd',
                 'unit_amount': amount,
                 'product_data': {
-                    'name': 'Donation',
+                    'name': 'Giving to SCC',
                 },
             },
             'quantity': 1,
@@ -175,30 +155,7 @@ def create_checkout_session():
 
     return {'id': session.id}
 
-@app.route('/process_email', methods=['POST'])
-def process_email():
-    email = request.form.get('email')
-    firstName = request.form.get('firstName')
-    lastName = request.form.get('lastName')
-
-    if validate_email(email):
-        try:
-            # Send the email using Flask-Mail
-            msg = Message("New Subscription", recipients=["godwinsilayo100@gmail.com"])
-            msg.body = f"{firstName} {lastName} with Emaail: {email} has joined our mailing list \n\n Thank you"
-            mail.send(msg)
-            flash("Thank you for subscribing! We have sent you a confirmation email.")
-            return redirect(url_for('home')) 
-        except Exception as e:
-            print("Error sending email:", e)
-            traceback.print_exc()
-            flash("Oops! Something went wrong. Please try again later.")
-            return redirect(url_for('home')) 
-    else:
-        flash("Invalid email address. Please provide a valid email.")
-        return redirect(url_for('home')) 
-
-# Index route to display the uploaded PDF files
+# material file to display the uploaded materials on Amazon S3
 @app.route('/materials')
 def materials():
     file_details = get_files_from_s3()
