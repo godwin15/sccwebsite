@@ -1,18 +1,47 @@
-.about{
-    padding: 20px 20px 30px 30px;
-    height: 95vh;
+/*  About Style */
+.big-container{
+    background-color: rgb(156, 110, 200);
+    padding: 20px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Alegreya', serif;
 }
-.grid-about{
-    display: grid; margin-top: 20px;
+
+.big-container h2{
+    width: 100%;
+    font-size: 40px; font-weight: bold;
+    color: aliceblue;
+    padding: 20px;
+}
+
+.about-container{
+    display: grid;
     grid-template-columns: auto auto;
-    gap: 10px;
+    height: auto;
+    width: 100%;
+    gap:30px;
 }
-.grid-about > div{
-    text-align: center; 
-    background-color: rgba(53, 53, 183, 0.912);
-    padding: 20px; margin: 20px;border-radius: 20px; 
-    height: 250px;color: white;
+
+.about-container > div{
+    max-width: 400px;
+    font-size: 20px; 
+    height: auto; text-align: center;
+    padding: 25px;
+    background-color: rgb(68, 68, 212);
+    border-radius: 10px; color: white;
 }
-@media (max-width:850px) {
-    .grid-about{grid-template-columns:auto;gap: 1px;}
-  }
+
+@media (max-width:768px) {
+    .about-container{
+        grid-template-columns: auto;
+        padding: 25px;
+        gap: 10px;
+    }
+    .big-container{
+        padding: 20px 10px 20px 10px;}
+}
+

@@ -6,7 +6,8 @@
 
 body{
   /*background-color: rgb(121, 165, 198); */
-  background-color: whitesmoke;
+  /*background-color: whitesmoke; */
+  background-color: rgb(147, 203, 224);
   height: 100%;
 }
 
@@ -27,7 +28,6 @@ footer{
   color: white; height: 50px;
   width: 100%; background-color: black;
   justify-content: center;text-align: center;
-  margin-top: 0;
 }
 footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
   text-align: center;}
