@@ -1,5 +1,8 @@
+/* THIS IS FOR THE POPUP GIVE ONLINE FORM AND NOT THE PAGE */
+
 /* Add styles to the form container */
 .form-container-giv {
+  font-family: 'Alegreya', serif;
   max-width: 100%;
   padding: 10px;
   display: flex;

@@ -2,18 +2,8 @@
 
 
 {% block content %}
-<div class="give-online">
-  <section>
-      <div class="mission">
-          <h1>Supernatural Community Church</h1>
-      </div><br>
-      <h1>How much would you like to give?</h1>
-      <div class="offering">
-          <form id="payment-form" action="{{url_for('payment')}}" method="POST">
-            <input id="amount-input" type="number" name="amount" step="0.01" min="0.01" required placeholder="Enter amount">
-            <button type="button" onclick="openStripeCheckout()">Proceed to Give</button>
-          </form>
-      </div>
-  </section>
+<div class="alternative">
+  <h1>SUPERNATURAL COMMUNITY CHURCH</h1>
+  
 </div>
 {% endblock %}

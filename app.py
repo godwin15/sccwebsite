@@ -102,19 +102,19 @@ def favicon():
 @app.route('/')
 def home():
     file_details = get_files_from_s3()
-    return render_template('index.html', public_key=public_key, title='Supernatural Community Church', file_details=file_details)
+    return render_template('index.html', public_key=public_key, title='Supernatural Community Church', file_details=file_details, resource="#resources")
 
 @app.route('/about')
 def about():
-    return render_template('about.html', public_key=public_key, title='about SCC')
+    return render_template('about.html', public_key=public_key, title='about SCC',resource="/#resources")
 
 @app.route('/give-online')
 def offering():
-    return render_template('offering.html', public_key=public_key, title='Give to SCC')
+    return render_template('offering.html', public_key=public_key, title='Give to SCC',resource="/#resources" )
 
 @app.route('/thankyou')
 def thankyou():
-    return render_template('thankyou.html', title='Thank you', public_key=public_key)
+    return render_template('thankyou.html', title='Thank you', public_key=public_key, resource="/#resources")
 
 @app.route('/payment', methods=['POST'])
 def payment():
@@ -156,7 +156,7 @@ def create_checkout_session():
     return {'id': session.id}
 
 # material file to display the uploaded materials on Amazon S3
-@app.route('/materials')
+@app.route('/resources')
 def materials():
     file_details = get_files_from_s3()
     return render_template('materials.html', file_details=file_details, public_key=public_key,  title='Resources')
