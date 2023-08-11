@@ -1,91 +1,55 @@
-.offering{
-    background-color: rgba(250, 250, 250, 0.5);
-    padding: 20px;
-    color:white;
-    border-radius:10px;
-  }
-.offering button{
-    background-color: rgba(211, 191, 191, 0.8); font-weight: bold;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 12px;
-    border-radius:10px;
-    font-size: 15px;
-    text-align: center;
-  }
-  .offering input{
-    padding: 12px;
-    border-radius:10px;
-  }
+/* Add styles to the form container */
+.form-container-giv {
+  max-width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  @media(max-width:500px){
-    .offering input{
-      margin-bottom: 10px;
-    }
-    .offering form{
-      display: flex;
-      flex-direction: column;
-      margin: 10px 10px;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-  .give-online{
-    padding: 30px 30px 30px 30px;
-    margin: 20px 20px 0 0;
-    height: 95vh;
-  }
-
-
-  /* Give Online form 
-.form-popup {
-	position: fixed; 
+/* The popup form - hidden by default */
+.form-popup-giv{
+	/*position: fixed; */
+    position: fixed; 
     display: none;
     top: 200px;
+    max-width: 100%;
+    border-radius: 10px;
+    background-color: white;
+    padding: 15px;
+    height: auto;
     border: 3px solid #f1f1f1;
-    z-index: 10;
+    z-index: 20;
 }
 
-
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-
-
-.form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
+/* Full-width input fields */
+.form-popup-giv input{
+  width: 100%; font-weight: bold;
+  margin: 10px 5px 5px 0;
   padding: 15px;
-  margin: 5px 0 22px 0;
   border: none;
+  border-radius: 10px;
   background: #f1f1f1;
 }
 
-
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+/* When the inputs get focus, do something */
+.form-popup-giv button{
+    font-weight: bold;
+    padding: 10px;
+    background-color: rgb(48, 48, 129);
+    color: aliceblue;
+    margin: 10px 5px 5px 0;
+    width: 100%;
+    border-radius: 5px;
+    opacity: 0.7;
+}
+.form-popup-giv .cancel{
+    width: 20%;
+    background-color: rgb(145, 24, 56);
 }
 
-
-.form-container .btn {
-  background-color: rgb(49, 42, 147);
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-
-.form-container .cancel {
-  background-color: rgb(14, 11, 11);
-}
-
-
-.form-container .btn:hover, .open-button:hover {
+/* Add some hover effects to buttons */
+.form-popup-giv button:hover{
   opacity: 1;
 }
-*/

@@ -102,11 +102,11 @@ def favicon():
 @app.route('/')
 def home():
     file_details = get_files_from_s3()
-    return render_template('index.html', title='Supernatural Community Church', file_details=file_details)
+    return render_template('index.html', public_key=public_key, title='Supernatural Community Church', file_details=file_details)
 
 @app.route('/about')
 def about():
-    return render_template('about.html', title='about SCC')
+    return render_template('about.html', public_key=public_key, title='about SCC')
 
 @app.route('/give-online')
 def offering():
@@ -114,7 +114,7 @@ def offering():
 
 @app.route('/thankyou')
 def thankyou():
-    return render_template('thankyou.html', title='Thank you')
+    return render_template('thankyou.html', title='Thank you', public_key=public_key)
 
 @app.route('/payment', methods=['POST'])
 def payment():
@@ -159,7 +159,7 @@ def create_checkout_session():
 @app.route('/materials')
 def materials():
     file_details = get_files_from_s3()
-    return render_template('materials.html', file_details=file_details, title='Resources')
+    return render_template('materials.html', file_details=file_details, public_key=public_key,  title='Resources')
 
 if __name__ == '__main__':
     app.run(debug=True)

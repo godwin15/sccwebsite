@@ -36,7 +36,7 @@
                         <a href="#resources" class="nav-link">Resources</a>
                     </li>
                     <li class="nav-item" >
-                        <a href="javascript:openGiving" class="nav-link" id="giveonline">GIVE ONLINE</a>
+                        <a href="javascript:openGiving()" class="nav-link" id="giveonline">GIVE ONLINE</a>
                     </li>
                 </ul>
                 <div class="hamburger">
@@ -51,15 +51,15 @@
             
             {% endblock %}
         </main>
-        <div>
-            <div class="form-popup" id="givingForm">
-                <form id="mail-form" method="POST" action="/process_email" class="form-container">
-                  <input type="text" placeholder="First Name" name="firstName" required>
-                  <input type="text" placeholder="Last Name" name="lastName" required>
-                  <button type="submit" class="btn">Proceed to Give</button>
-                  <button type="button" class="btn cancel" onclick="closeGiving()">Close</button>
+          <!-- Giving Form -->
+        <div class="form-container-giv">
+            <div class="form-popup-giv" id="givingForm">
+                <form id="payment-form" action="{{url_for('payment')}}" method="POST">
+                <input id="amount-input" type="number" name="amount" step="0.01" min="0.01" required placeholder="Enter amount in USD">
+                <button type="button" onclick="openStripeCheckout()" class="btn">Proceed to Give</button>
+                <button type="button" class="cancel" onclick="closeGiving()">Close</button>
                 </form>
-              </div>
+            </div>
         </div>
 
         <!-- Subscription Form-->
@@ -157,30 +157,35 @@
         <script>
             function openStripeCheckout() {
                 var amount = document.getElementById("amount-input").value;
-    
+
                 // Create a Stripe Checkout Session
                 fetch("/create-checkout-session", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    amount: amount * 100,
-                }),
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        amount: amount * 100,
+                    }),
                 })
                 .then(function (response) {
                     return response.json();
                 })
                 .then(function (session) {
                     var stripe = Stripe('{{public_key}}');
-                    stripe.redirectToCheckout({ sessionId: session.id })
-                    .then(function (result) {
+                    return stripe.redirectToCheckout({ sessionId: session.id });
+                })
+                .then(function (result) {
+                    if (result && result.error) {
                         // Handle any errors during the redirect to checkout
                         console.error(result.error.message);
-                    });
+                        throw new Error(result.error.message); // Throw error to be caught in the catch block
+                    }
                 })
                 .catch(function (error) {
                     console.error("Error:", error);
+                    // Redirect to the 'other-option' URL when Stripe function fails
+                    window.location.href = '/give-online';
                 });
             }
           </script>
