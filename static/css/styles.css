@@ -5,10 +5,9 @@
 }
 
 body{
-  /*background-color: rgb(121, 165, 198); */
-  /*background-color: whitesmoke; */
   background-color: rgb(147, 203, 224);
   height: 100%;
+  font-family: 'Alegreya', serif;
 }
 
 .page{
@@ -40,12 +39,7 @@ footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
   background-color: #040404;
   padding: 5px;
 }
-.grid-container2 { 
-  display: grid;
-  gap: 20px 70px;
-  grid-template-columns: auto;
-  padding: 10px;
-}
+
 .grid-item {
   background-color: rgba(0, 0, 0);
   padding: 10px;
@@ -55,9 +49,17 @@ footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
   max-width:100%; height:auto;
   top: 0; left: 0;
 }
+.grid-container2 { 
+  display: grid;
+  gap: 20px 70px;
+  grid-template-columns: auto;
+  padding: 10px;
+}
+
 .grid-container2 a{text-decoration: none;}
+
 .grid-container2 button {
-  background-color: rgba(225, 209, 209); font-weight: bold;
+  font-weight: bold;
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 10px;
   cursor: pointer;

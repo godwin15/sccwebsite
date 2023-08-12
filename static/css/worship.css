@@ -8,7 +8,7 @@
     padding: 20px;
 }
 .highlight{
-    color: rgb(17, 80, 17);
+    color: rgb(17, 21, 80);
     font-size: 40px; font-weight: bolder;
     padding: 10px;
 }
@@ -36,7 +36,7 @@
       display: inline-block;
       width: 16px;
       height: 16px;
-      border: 5px solid rgb(111, 121, 43);
+      border: 5px solid rgb(17, 80, 17);
       border-radius: 100%;
   }
   
@@ -48,7 +48,7 @@
       display: block;
       content: '';
       border: 6px solid transparent;
-      border-top: 10px solid rgb(111, 121, 43);
+      border-top: 10px solid rgb(17, 80, 17);
       border-bottom: none;
   }
 @media (max-width:540px) {
