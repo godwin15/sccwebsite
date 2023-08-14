@@ -12,6 +12,16 @@
     width: 100%; 
 }
 
+.welcome{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    padding: 0 100px 0 100px;
+    color:rgb(247, 243, 243);
+    width: 80%;
+}
+.welcome h4{
+    text-align: right;
+}
 .home h1 {
     font-size: 100px; 
     font-weight: bolder;
@@ -20,9 +30,18 @@
 }
 @media screen and (max-width: 768px) {
     .home {
-        height: 65vh; /* Adjust the height as needed */
+        height: 75vh; /* Adjust the height as needed */
+    }
+    .welcome{
+        width: 100%;
+        padding: 0 20px 0 20px;
     }
     .home h1 {
         font-size: 3em; /* This size is for mobile responsiveness */
     }
+}
+@media screen and (max-width: 330px){
+    .home {
+        height: 90vh; /* Adjust the height as needed */
+    } 
 }
