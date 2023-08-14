@@ -57,7 +57,8 @@
     font-size: 20px; 
     height: auto; text-align: center;
     padding: 25px;
-    background-color: rgb(68, 68, 212);
+   /* background-color: rgb(68, 68, 212);*/
+   background-color: rgb(12, 12, 45);
     border-radius: 10px; color: white;
 }
 

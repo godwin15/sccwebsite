@@ -15,7 +15,7 @@ public_key = config['ENV']['PUBLIC_KEY']
 stripe.api_key = config['ENV']['STRIPE_KEY']
 
 # Configure Amazon S3 credentials
-BUCKET_NAME = 'supernaturalpics'
+BUCKET_NAME = 'supernaturalchurchpics'
 S3_BUCKET_NAME = config['ENV']['S3_BUCKET_NAME']
 AWS_ACCESS_KEY_ID = config['ENV']['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = config['ENV']['AWS_SECRET_ACCESS_KEY']
@@ -102,19 +102,19 @@ def favicon():
 @app.route('/')
 def home():
     file_details = get_files_from_s3()
-    return render_template('index.html', public_key=public_key, title='Supernatural Community Church', file_details=file_details, resource="#resources")
+    return render_template('index.html', public_key=public_key, title='Supernatural Community Church', file_details=file_details)
 
 @app.route('/about')
 def about():
-    return render_template('about.html', public_key=public_key, title='about SCC',resource="/#resources")
+    return render_template('about.html', public_key=public_key, title='about SCC')
 
 @app.route('/give-online')
 def offering():
-    return render_template('offering.html', public_key=public_key, title='Give to SCC',resource="/#resources" )
+    return render_template('offering.html', public_key=public_key, title='Give to SCC')
 
 @app.route('/thankyou')
 def thankyou():
-    return render_template('thankyou.html', title='Thank you', public_key=public_key, resource="/#resources")
+    return render_template('thankyou.html', title='Thank you', public_key=public_key)
 
 @app.route('/payment', methods=['POST'])
 def payment():
