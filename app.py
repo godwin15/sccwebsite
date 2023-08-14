@@ -2,7 +2,6 @@ import os
 from flask import Flask, request, render_template,send_from_directory, redirect, url_for
 import stripe
 import boto3
-import configparser
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -10,19 +9,7 @@ load_dotenv()
 
 app = Flask(__name__, template_folder="html/", static_url_path="/static")
 app.secret_key = os.urandom(16)
-'''
-config = configparser.ConfigParser()
-config.read('.env')
 
-public_key = config['ENV']['PUBLIC_KEY']
-stripe.api_key = config['ENV']['STRIPE_KEY']
-
-# Configure Amazon S3 credentials
-BUCKET_NAME = config['ENV']['BUCKET_NAME']
-S3_BUCKET_NAME = config['ENV']['S3_BUCKET_NAME']
-AWS_ACCESS_KEY_ID = config['ENV']['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = config['ENV']['AWS_SECRET_ACCESS_KEY']
-'''
 public_key = os.environ['PUBLIC_KEY']
 stripe.api_key = os.environ['STRIPE_KEY']
 
