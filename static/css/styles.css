@@ -9,7 +9,7 @@ body{
   height: 100%;
   font-family: 'Alegreya', serif;
 }
-
+/*For all pages*/
 .page{
   position: relative; color: white;
   height: auto; /* adjust 60px to the actual height of your navbar */
@@ -28,9 +28,10 @@ footer{
   width: 100%; background-color: black;
   justify-content: center;text-align: center;
 }
-footer h6{color: aliceblue; background-color: rgba(0, 0, 0, 0.5);
+footer h6{color: rgb(246, 248, 250); background-color: rgba(0, 0, 0, 0.5);
   text-align: center;}
-
+  
+/*For footer sections*/
 .grid-container {
   color:white;
   display: grid;

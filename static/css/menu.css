@@ -47,6 +47,7 @@ a{
 .nav-link{
     transition: 0.7s ease;
     font-weight: bold;
+    cursor: pointer;
 }
 .nav-link:hover{
     color: white; padding: 10px;

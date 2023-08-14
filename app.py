@@ -15,7 +15,7 @@ public_key = config['ENV']['PUBLIC_KEY']
 stripe.api_key = config['ENV']['STRIPE_KEY']
 
 # Configure Amazon S3 credentials
-BUCKET_NAME = 'supernaturalchurchpics'
+BUCKET_NAME = config['ENV']['BUCKET_NAME']
 S3_BUCKET_NAME = config['ENV']['S3_BUCKET_NAME']
 AWS_ACCESS_KEY_ID = config['ENV']['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = config['ENV']['AWS_SECRET_ACCESS_KEY']
@@ -53,7 +53,7 @@ def generate_first_page_url(file, bucket):
     )
     return signed_url
 
-
+#Getting the pdfs and the cover images
 def get_files_from_s3():
     try:
         s3_client = boto3.client(
@@ -93,6 +93,7 @@ def get_files_from_s3():
 
     except Exception as e:
         print(f"An error occurred: {e}")
+        #return an empty list when can't load aws 
         return []
 
 @app.route('/favicon.ico')
@@ -116,6 +117,7 @@ def offering():
 def thankyou():
     return render_template('thankyou.html', title='Thank you', public_key=public_key)
 
+#For stripe
 @app.route('/payment', methods=['POST'])
 def payment():
 
@@ -154,12 +156,6 @@ def create_checkout_session():
     )
 
     return {'id': session.id}
-
-# material file to display the uploaded materials on Amazon S3
-@app.route('/resources')
-def materials():
-    file_details = get_files_from_s3()
-    return render_template('materials.html', file_details=file_details, public_key=public_key,  title='Resources')
 
 if __name__ == '__main__':
     app.run()

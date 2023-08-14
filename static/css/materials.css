@@ -43,6 +43,7 @@
   text-align: center;
 }
 .swipebtn{
+  cursor: pointer;
   color: #0a1032;
   font-weight: bolder;
 }
