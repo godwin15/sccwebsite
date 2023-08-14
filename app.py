@@ -162,4 +162,4 @@ def materials():
     return render_template('materials.html', file_details=file_details, public_key=public_key,  title='Resources')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
