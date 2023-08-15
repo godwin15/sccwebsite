@@ -1,65 +1,50 @@
-<!DOCTYPE html>
-<htm lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title> SCC </title>
-    </head>
-    <body>
-        <nav class="menu-bar">
-            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
-            <ul class="container" id="menu-items">
-                <li><a href="/">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="/schedule">Schedule</a></li>
-                <li><a href="/materials">Materials</a></li>
-            </ul>
-            <a href="/joinus" class="get-in">GET INVOLVED</a>
-        </nav>      
-
-        <main>
-            <h2>Supernatural Community Church</h2>  
-            <h1>Abous Us</h1><br>
-            <p class = "about">
-                Our mission is to preach and teach the never changing message of redemption in Christ to an ever-changing world.
+{% extends "mainTemplate.html" %}
 
 
-Thus, we are committed to equip believers as we fellowship together with the word. We do this with much emphasis on the reality of the new creation in redemption with the intent that men are grounded and able to teach others the same. We are set out to light up every dark places on the earth as we preach and teach the gospel with the consciousness of definite signs and wonders.
-
-
-Supernatural Community Church is a church ministry where we are devoted to raising and training ministers of the gospel who will reach the ends of the earth and light up every dark places
-            </p>
-        </main>
-        <footer>
-            <div class="grid-container">
-                <div class="grid-item">
-                <h2>Contact us via</h2>
-                <h4>Phone: 585-210-5038</h4> 
-                <h4>Email: Supernaturalcommunitychurch@gmail.com</h4>
-                <p>Bringing Hope of the light of the</p>
-                <p>Gospel to every nation.</p>
-                </div>
-                <div class="grid-item">
-                    <div>
-                        <h3>Support the mission by giving through</h3>
-                        <div class="grid-container2">
-                            <a href="/offering">
-                                <button>Give Online</button>
-                              </a>
-                        
-                        </div>
-                    </div>
-                </div> 
-                
+{% block content %}
+<div class="about-us">
+    <h1>SCC Mission</h1>
+    <div>
+        <p>
+            Our mission is to preach and teach the never changing message of redemption in Christ to an ever-changing world.
+        </p>
+        <p>Thus, we are committed to equip believers as we fellowship together with the word. We do this with much emphasis on the reality of the new creation in redemption with the intent 
+            that men are grounded and able to teach others the same. We are set out to light up every dark places on the earth as we preach and teach the gospel with the consciousness of 
+            definite signs and wonders.
+        </p>
+        <p>Supernatural Community Church is a church ministry where we are devoted to raising and training ministers of the gospel 
+            who will reach the ends of the earth and light up every dark places.
+        </p>
+    </div>
+</div>
+<div class="about">
+    <div class="big-container">
+        <h2>4 Things To Know About SCC</h2>
+        <div class="about-container">
+            <div>
+                <h3><q> The teaching of God's word is given first place and spiritual growth is a priority. </q></h3><br>
+                At SCC, we are devoted to not keeping anything from you that is profitable to God's word. We ensure the word of God is taught 
+                consistently and regularly. <br>
+                <p>Acts 2:42</p>
             </div>
-            
-        </footer>
-        <!-- Link to Bootstrap JavaScript -->
-        <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
-  
-    </body>
-</htm>
+            <div><h3><q> We are a church devoted to prayer specifically praying in tongues. </q></h3> <br>
+                Prayer is fellowship and a demonstration of our trust in God. Because we want to walk in God's desires and plans for our lives, we ought
+                to be praying and that is what we are committed to do. <br>
+                <p>Jude 1:20</p>
+            </div>
+            <div><h3><q> We train our members for the work of ministry by evangelism and discipleship. </q></h3> <br>
+                We believe that the solution to the problems of humanity is God's word. So that means the solution is in our hands and we must do 
+                something with it. <br>
+                <p>I Tim 2:3-4</p>
+            </div>
+            <div>
+                <h3><q> We believe in the practice of things of the spirit. </q></h3> <br>
+                We believe in tongues, prophecy, interpretation of tongues, visions, trances, words of wisdom and 
+                knowledge, healings and miracles, and gifts of the faith <br>
+                <p>I Cor 12:1-20</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}      

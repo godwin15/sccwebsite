@@ -1,40 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title> SCC </title>
-    </head>
-    <body>
-        <nav class="menu-bar">
-            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="logo">
-            <ul class="container" id="menu-items">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/schedule">Schedule</a></li>
-                <li><a href="#">Materials</a></li>
-            </ul>
-            <a href="/joinus" class="get-in">GET INVOLVED</a>
-        </nav>      
+{% extends "mainTemplate.html" %}
 
-        <div>
-            <ul>
-                {% for file_detail in file_details %}
-                    <li>
-                        
-                        <div class="pdf-subview">
-                            <iframe src="{{ file_detail.signed_url }}"></iframe>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
+
+{% block content %}
+<!-- Swiper -->
+<div class="materials">
+  {% if file_details %}
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+      {% for file_detail in file_details %}
+        <div class="swiper-slide">
+          <img src='{{ file_detail.symbol }}'/>
+          <div class="overlay"><a href="{{ file_detail.signed_url }}" target="_blank"><div class="btn">Click here to read more</div></a></div>
         </div>
-        <!-- Link to Bootstrap JavaScript -->
-        <script src="{{ url_for('static', filename='scripts/menu.js') }}"> </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
-  
-    </body>
-</html>
+        <div class="swiper-slide">
+          <img src='{{ file_detail.symbol }}'/>
+          <div class="overlay"><a href="{{ file_detail.signed_url }}" target="_blank"><div class="btn">Click here to read more</div></a></div>
+        </div>
+        <div class="swiper-slide">
+          <img src='{{ file_detail.symbol }}'/>
+          <div class="overlay"><a href="{{ file_detail.signed_url }}" target="_blank"><div class="btn">Click here to read more</div></a></div>
+        </div>
+        <div class="swiper-slide">
+          <img src='{{ file_detail.symbol }}'/>
+          <div class="overlay"><a href="{{ file_detail.signed_url }}" target="_blank"><div class="btn">Click here to read more</div></a></div>
+        </div>
+        <div class="swiper-slide">
+          <img src='{{ file_detail.symbol }}'/>
+          <div class="overlay"><a href="{{ file_detail.signed_url }}" target="_blank"><div class="btn">Click here to read more</div></a></div>
+        </div>
+        <div class="swiper-slide">
+          <img src='{{ file_detail.symbol }}'/>
+          <div class="overlay"><a href="{{ file_detail.signed_url }}" target="_blank"><div class="btn">Click here to read more</div></a></div>
+        </div>
+    {% endfor %}
+      </div>
+        <div class="swiper-button-next swipebtn"></div>
+        <div class="swiper-button-prev swipebtn"></div>
+        <div class="swiper-pagination swipebtn"></div>
+      </div>
+      {% else %}
+      <div class="message">There is no internet connection, please try again later.</div>
+    {% endif %}
+</div>
+{% endblock %} 

@@ -1,0 +1,28 @@
+.alternative{
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center; 
+    height: 80vh;
+    width: 100%; 
+}
+.mission{
+    font-size: 30px;
+    color: rgb(14, 14, 57);
+}
+.mission h1{
+    font-size: 40px;
+}
+.mission h2{
+    font-size: 30px;
+}
+@media screen and (max-width: 768px) {
+    .mission h1{
+        font-size: 3rem;
+    }
+    .mission h2{
+        font-size: 1.5rem;
+    }
+}

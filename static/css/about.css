@@ -1,0 +1,77 @@
+/*  About Style */
+.big-container{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Alegreya', serif;
+}
+.about-us{
+    border-radius: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/static/images/about-us.jpg");
+    background-size: cover; 
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center; 
+    max-width: 100%;
+    margin: 20px 10px 5px 10px;
+    padding: 20px;
+    font-family: 'Alegreya', serif;
+}
+.about-us p{
+    font-size: 20px; 
+}
+.about-us h1{
+    font-size: 40px; 
+    padding: 10px;
+}
+.about-us > div{
+    padding: 5px 20px 5px 20px;
+}
+.about-us .about{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    align-items: center;
+}
+.big-container h2{
+    width: 100%;
+    font-size: 40px; font-weight: bold;
+    color: white;
+    padding: 5px 20px 10px 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.about-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    height: auto;
+    width: 100%;
+    gap:50px;
+}
+
+.about-container > div{
+    max-width: 400px;
+    font-size: 20px; 
+    height: auto; text-align: center;
+    padding: 25px;
+   /* background-color: rgb(68, 68, 212);*/
+   background-color: rgb(12, 12, 45);
+    border-radius: 10px; color: white;
+}
+
+@media (max-width:768px) {
+    .about-container{
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .big-container{
+        padding: 20px 0px 20px 20px;}
+}
+@media (max-width:500px) {
+    .big-container{
+        padding:10px;}
+}
+
