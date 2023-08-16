@@ -5,13 +5,14 @@
 }
 
 body{
-  background-color: rgb(147, 203, 224);
+  /*background-color: rgb(147, 203, 224);*/
+  background: linear-gradient(45deg, rgb(45, 45, 92), rgb(90, 90, 140));
   height: 100%;
   font-family: 'Alegreya', serif;
 }
 /*For all pages*/
 .page{
-  position: relative; color: white;
+  position: relative; color: aliceblue;
   height: auto; /* adjust 60px to the actual height of your navbar */
   width: 100%;
   display: flex; flex-direction: column;
