@@ -82,8 +82,32 @@ footer h6{color: rgb(246, 248, 250); background-color: rgba(0, 0, 0, 0.5);
 .media a{
   text-decoration: none;
   color: white;
+  font-weight: bold;
 }
-
+.spotify:hover{
+  background-color: rgb(52, 166, 52);
+  color: #040404;
+}
+.sound-cloud:hover{
+  background-color: rgb(235, 94, 23);
+}
+.podcast:hover{
+  background-color: rgb(219, 91, 217);
+}
+.instagram:hover{
+  background-color: rgb(220, 29, 216); border-radius: 5px;
+}
+.facebook:hover{
+  background-color: rgb(29, 90, 220); border-radius: 5px;
+}
+.twitter:hover{
+  color: rgb(29, 90, 220); border-radius: 5px; background-color: aliceblue;
+}
+.select a:hover{
+  box-shadow: 0 0 8px;
+  border-bottom: 2px solid rgb(194, 194, 239);
+  border-radius: 5px;
+}
 @media (max-width:1050px){
   .grid-container2 button {padding: 15px;}
 	.grid-container {
