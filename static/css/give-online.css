@@ -2,28 +2,36 @@
 
 /* Add styles to the form container */
 .form-container-giv {
-  font-family: 'Alegreya', serif;
-  max-width: 100%;
-  padding: 10px;
-  display: flex;
+  position: fixed; 
+  top: 0;                     /* Start from the top edge */
+  left: 0;                    /* Start from the left edge */
+  width: 100vw;               /* Cover the full viewport width */
+  height: 100vh;              /* Cover the full viewport height */
+  z-index: 9999; 
+  background-color: rgb(0,0,0,0.7);
+  display: none; 
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 /* The popup form - hidden by default */
 .form-popup-giv{
-	/*position: fixed; */
-    position: fixed; 
-    display: none;
-    top: 200px;
-    max-width: 100%;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 330px;
+    border-radius: 3px;
     background-color: white;
     padding: 15px;
     height: auto;
     border: 3px solid #f1f1f1;
-    z-index: 20;
+    z-index: 10;
+}
+.form-popup-giv label{
+  font-weight: bold;
+  margin-left: 7px;
 }
 
 /* Full-width input fields */
@@ -31,7 +39,7 @@
   width: 100%; font-weight: bold;
   margin: 10px 5px 5px 0;
   padding: 15px;
-  border: none;
+  border: 1px solid rgb(81, 63, 98);
   border-radius: 10px;
   background: #f1f1f1;
 }
@@ -46,6 +54,7 @@
     width: 100%;
     border-radius: 5px;
     opacity: 0.7;
+    cursor: pointer;
 }
 .form-popup-giv .cancel{
     width: 20%;

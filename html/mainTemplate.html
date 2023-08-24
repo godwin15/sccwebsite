@@ -53,19 +53,20 @@
             {% endblock %}
         </main>
           <!-- Giving Form -->
-        <div class="form-container-giv">
-            <div class="form-popup-giv" id="givingForm">
+        <div class="form-container-giv" id="givingForm">
+            <div class="form-popup-giv">
                 <form id="payment-form" action="{{url_for('payment')}}" method="POST">
-                <input id="amount-input" type="number" name="amount" step="0.01" min="0.01" required placeholder="Enter amount in USD">
-                <button type="button" onclick="openStripeCheckout()" class="btn">Proceed to Give</button>
-                <button type="button" class="cancel" onclick="closeGiving()">Close</button>
+                    <label for="amount-input">Enter amount in USD</label>
+                    <input id="amount-input" type="number" name="amount" step="0.01" min="0.01" placeholder="Amount" required>
+                    <button type="button" onclick="validateAndOpenStripeCheckout();" class="btn">Proceed to Give</button>
+                    <button type="button" class="cancel" onclick="closeGiving()">Close</button>
                 </form>
             </div>
         </div>
 
         <!-- Subscription Form-->
-        <div class="form-container">
-            <div class="form-popup" id="myForm">
+        <div class="form-container" id="myForm">
+            <div class="form-popup">
                 <div id="mc_embed_shell">
                     <div id="mc_embed_signup">
                         <form action="https://soundcloud.us21.list-manage.com/subscribe/post?u=472e5298779388e28d62e249e&amp;id=9e13237b5c&amp;f_id=00745de1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
@@ -103,7 +104,7 @@
                         <div>LINKS &rarr;</div>
                         <a href="/about">About</a>
                         <a href="/#resources">Resources</a>
-                        <a href="javascript:openGiving()">GIVE ONLINE</a>
+                        <a href="javascript:openGiving()" class="online">GIVE ONLINE</a>
                     </div>
                 </div>
 
@@ -189,18 +190,28 @@
                     window.location.href = '/give-online';
                 });
             }
+            function validateAndOpenStripeCheckout() {
+                var amountInput = document.getElementById('amount-input');
+                if (amountInput.checkValidity()) {
+                    openStripeCheckout();
+                } else {
+                    // This will show the browser's default validation message
+                    amountInput.reportValidity();
+                }
+            }
+
           </script>
         <!--Form Script-->
         <script>
              function openGiving() {
-              document.getElementById("givingForm").style.display = "block";
+              document.getElementById("givingForm").style.display = "flex";
             }
             function closeGiving() {
               document.getElementById("givingForm").style.display = "none";
             }
 
             function openForm() {
-              document.getElementById("myForm").style.display = "block";
+              document.getElementById("myForm").style.display = "flex";
             }
             function closeForm() {
               document.getElementById("myForm").style.display = "none";

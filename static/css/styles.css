@@ -79,11 +79,12 @@ footer h6{color: rgb(246, 248, 250); background-color: rgba(0, 0, 0, 0.5);
   display: flex; justify-content: center; align-items: center;
   column-gap: 10px;
 }
+
 .media a{
   text-decoration: none;
   color: white;
-  font-weight: bold;
 }
+
 .spotify:hover{
   background-color: rgb(52, 166, 52);
   color: #040404;
@@ -107,6 +108,10 @@ footer h6{color: rgb(246, 248, 250); background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 8px;
   border-bottom: 2px solid rgb(194, 194, 239);
   border-radius: 5px;
+}
+.online{
+  border-bottom: 2px solid rgb(194, 194, 239);
+  font-weight: bold;
 }
 @media (max-width:1050px){
   .grid-container2 button {padding: 15px;}
