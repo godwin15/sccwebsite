@@ -23,3 +23,14 @@ document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click",(
     navMenu.classList.remove("active")
 }))
 
+/*
+function displayFeaturedServices(servicesList) {
+    const resultsContainerEl = document.getElementById("featuredServices");
+    let featuredContent = "";
+    
+    servicesList.forEach(service => {
+        featuredContent += createServiceCard(service);
+    });
+
+    resultsContainerEl.innerHTML = featuredContent;
+}*/

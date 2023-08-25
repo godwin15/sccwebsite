@@ -45,3 +45,17 @@
         height: 90vh; /* Adjust the height as needed */
     } 
 }
+
+#featuredServices {
+    display: flex;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: max-content;
+}
+.message {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
