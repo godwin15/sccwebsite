@@ -2,25 +2,25 @@
 
 
 {% block content %}
-<div class="home">
-    <h1>LIGHTING UP </h1>
-    <h1>THE DARK PLACES</h1> <br>
-    <div class="welcome">
-        <p>Hello friends, </p> <br>
-        <p>
-          On behalf of Supernatural Community Church, I welcome you here. We pray and trust God's Spirit to open your eyes to 
-          truths found in His word via this medium. The Word as a message and ministry is our mandate in all the earth.
-          It brings clarity of purpose, wholeness, wellness and above all stability in Christ. This we pray and receive 
-          is your experience here. Don't just surf here, learn here and also tell your friends! You are blessed!!!
-        </p>
-        <br>
-      <h4>Ayo Benson.</h4>
-    </div>
-    
-</div>
+  <div class="home">
+      <h1>LIGHTING UP </h1>
+      <h1>THE DARK PLACES</h1> <br>
+      <div class="welcome">
+          <p>Hello friends, </p> <br>
+          <p>
+            On behalf of Supernatural Community Church, I welcome you here. We pray and trust God's Spirit to open your eyes to 
+            truths found in His word via this medium. The Word as a message and ministry is our mandate in all the earth.
+            It brings clarity of purpose, wholeness, wellness and above all stability in Christ. This we pray and receive 
+            is your experience here. Don't just surf here, learn here and also tell your friends! You are blessed!!!
+          </p>
+          <br>
+        <h4>Ayo Benson.</h4>
+      </div>
+      
+  </div>
 
 
-<div class="container-worship">
+  <div class="container-worship">
     <div class="highlight">
         Worship With Us
     </div>
@@ -33,11 +33,11 @@
         </div>
     </div>
     <div class="location">
-       <h4><i class='icon'></i></h4> 
-       <div>
-            <h4> 1400 LEHIGH STATION RD</h4>
-            <h4>  HENRIETTA, NY 14467</h4>
-            <h4>  UNITED STATES</h4>
+        <h4><i class='icon'></i></h4> 
+        <div>
+          <h4> 1400 LEHIGH STATION RD</h4>
+          <h4>  HENRIETTA, NY 14467</h4>
+          <h4>  UNITED STATES</h4>
         </div>
     </div>
   </div>
@@ -47,25 +47,19 @@
     </iframe>
   </div>
 
-  <div class="materials" id="resources">
-    <h2>&larr; Featured Resources &rarr;</h2>
+  
+  <h2>Featured Services &rarr;</h2>
+  <div class="container-fluid" id="featuredServices">
     {% if file_details %}
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-        {% for file_detail in file_details %}
-          <div class="swiper-slide">
-            <img src='{{ file_detail.symbol }}' />
-            <div class="overlay"><a href="{{ file_detail.signed_url }}" target="_blank"><div class="btn">Click here to read more</div></a></div>
-          </div>
+      {% for file_detail in file_details %}
+      <a href="{{ file_detail.signed_url }}" target="_blank">
+        <iframe src="{{ file_detail.signed_url }}" frameborder="0"></iframe>
+      </a>
       {% endfor %}
-        </div>
-          <div class="swiper-button-next swipebtn"></div>
-          <div class="swiper-button-prev swipebtn"></div>
-          <div class="swiper-pagination swipebtn"></div>
-        </div>
-        {% else %}
-        <div class="message">There is no internet connection, please try again later.</div>
-      {% endif %}
+    {% else %}
+      <div class="message">There are no PDF files available.</div>
+    {% endif %}
   </div>
+  
 
 {% endblock %}

@@ -48,14 +48,13 @@
     display: grid;
     grid-template-columns: auto auto;
     height: auto;
-    width: 100%;
-    gap:50px;
+    gap:60px;
 }
 
 .about-container > div{
-    max-width: 400px;
-    font-size: 20px; 
-    height: auto; text-align: center;
+    max-width: 30rem;
+    font-size: 22px; 
+    height: 22rem; text-align: center;
     padding: 25px;
    /* background-color: rgb(68, 68, 212);*/
    background-color: rgb(12, 12, 45);

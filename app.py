@@ -57,9 +57,8 @@ def generate_first_page_url(file, bucket):
     )
     return signed_url
 
+
 # Getting the pdfs and the cover images
-
-
 def get_files_from_s3():
     try:
         s3_client = boto3.client(
