@@ -46,7 +46,7 @@
     } 
 }
 
-#featured-services {
+#featuredServices {
     display: flex;
     flex-wrap: nowrap;
     scroll-behavior: smooth;
