@@ -52,9 +52,14 @@
   <div class="container-fluid" id="featuredServices">
     {% if file_details %}
       {% for file_detail in file_details %}
-      <a href="{{ file_detail.signed_url }}" target="_blank">
-        <iframe src="{{ file_detail.signed_url }}" frameborder="0"></iframe>
-      </a>
+      <img src="{{ file_detail.symbol }}">
+      <img src="{{ file_detail.symbol }}">
+      <img src="{{ file_detail.symbol }}">
+      <img src="{{ file_detail.symbol }}">
+      <img src="{{ file_detail.symbol }}">
+      <img src="{{ file_detail.symbol }}">
+      <img src="{{ file_detail.symbol }}">
+      <img src="{{ file_detail.symbol }}">
       {% endfor %}
     {% else %}
       <div class="message">There are no PDF files available.</div>
