@@ -59,3 +59,8 @@
     width: 100%;
     margin-top: 20px;
 }
+#featuredServices img {
+    padding: 1rem;
+    height: 25rem;
+    width: 20rem;
+}
