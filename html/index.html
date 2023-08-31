@@ -2,71 +2,72 @@
 
 
 {% block content %}
-  <div class="home">
-      <h1>LIGHTING UP </h1>
-      <h1>THE DARK PLACES</h1> <br>
-      <div class="welcome">
-          <p>Hello friends, </p> <br>
-          <p>
-            On behalf of Supernatural Community Church, I welcome you here. We pray and trust God's Spirit to open your eyes to 
-            truths found in His word via this medium. The Word as a message and ministry is our mandate in all the earth.
-            It brings clarity of purpose, wholeness, wellness and above all stability in Christ. This we pray and receive 
-            is your experience here. Don't just surf here, learn here and also tell your friends! You are blessed!!!
-          </p>
-          <br>
-        <h4>Ayo Benson.</h4>
-      </div>
-      
+<div class="home">
+  <h1>LIGHTING UP </h1>
+  <h1>THE DARK PLACES</h1> <br>
+  <div class="welcome">
+    <p>Hello friends, </p> <br>
+    <p>
+      On behalf of Supernatural Community Church, I welcome you here. We pray and trust God's Spirit to open your eyes
+      to
+      truths found in His word via this medium. The Word as a message and ministry is our mandate in all the earth.
+      It brings clarity of purpose, wholeness, wellness and above all stability in Christ. This we pray and receive
+      is your experience here. Don't just surf here, learn here and also tell your friends! You are blessed!!!
+    </p>
+    <br>
+    <h4>Ayo Benson.</h4>
   </div>
 
+</div>
 
-  <div class="container-worship">
-    <div class="highlight">
-        Worship With Us
+
+<div class="container-worship">
+  <div class="highlight">
+    Worship With Us
+  </div>
+  <div class="grid-time">
+    <div class="grid-time-item">
+      EVERY SUNDAY | 10 AM
     </div>
-    <div class="grid-time">
-        <div class="grid-time-item">
-            EVERY SUNDAY | 10 AM
-        </div>
-        <div class="grid-time-item">
-            EVERY TUESDAY | 7 PM
-        </div>
-    </div>
-    <div class="location">
-        <h4><i class='icon'></i></h4> 
-        <div>
-          <h4> 1400 LEHIGH STATION RD</h4>
-          <h4>  HENRIETTA, NY 14467</h4>
-          <h4>  UNITED STATES</h4>
-        </div>
+    <div class="grid-time-item">
+      EVERY TUESDAY | 7 PM
     </div>
   </div>
-  <div style="width:100%">
-    <iframe width="100%" height="332px" scrolling="no" frameborder="no" allow="autoplay" style="border-radius: 10px;"
+  <div class="location">
+    <h4><i class='icon'></i></h4>
+    <div>
+      <h4> 1400 LEHIGH STATION RD</h4>
+      <h4> HENRIETTA, NY 14467</h4>
+      <h4> UNITED STATES</h4>
+    </div>
+  </div>
+</div>
+<div style="width:100%">
+  <iframe width="100%" height="332px" scrolling="no" frameborder="no" allow="autoplay" style="border-radius: 10px;"
     src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/1202808049&amp;autoplay=false&show_artwork=true">
-    </iframe>
-  </div>
+  </iframe>
+</div>
 
-  
-  <h2>Featured Services &rarr;</h2>
-  <div>
-    {% if file_details %}
-    <ul class="cards">
-      {% for file_detail in file_details %}
-      <li class="card">
-          <div class="card-content">
-           <img src='{{ file_detail.symbol }}' alt="image" width="250px" height="350px">
-          </div>
-          <div class="card-link-wrapper">
-            <a href="{{ file_detail.signed_url }}" target="_blank" class="card-link">Learn More</a>
-          </div>
-      </li>
-      {% endfor %}
-    </ul>
-    {% else %}
-          <div class="message">There is no internet connection, please try again later.</div>
-    {% endif %}
-  </div>
-  
+
+<div class="materials" id="resources">
+  <h2>&larr; Featured Resources &rarr;</h2>
+  {% if file_details %}
+  <ul class="cards">
+    {% for file_detail in file_details %}
+    <li class="card">
+        <div class="card-content">
+         <img src='{{ file_detail.symbol }}' alt="image" width="250px" height="350px">
+        </div>
+        <div class="card-link-wrapper">
+          <a href="{{ file_detail.signed_url }}" target="_blank" class="card-link">Learn More</a>
+        </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+        <div class="message">There is no internet connection, please try again later.</div>
+  {% endif %}
+</div>
+
 
 {% endblock %}
