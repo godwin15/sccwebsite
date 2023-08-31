@@ -1,72 +1,127 @@
 .materials{
-  display: flex; flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  width: 100%;
-  color: #f9fafe;
-  margin-bottom: 50px;
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
 }
 .materials h2{
+  padding: 5px 0;
+}
+.cards {
+  display: flex;
+  padding: 10px 0px;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
   padding: 10px;
+  background: rgba(0, 0, 0, 50%);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  scroll-snap-align: start;
+  transition: all 0.2s;
+  max-width: 250px;
+  max-height: 500px;
+  overflow: hidden;
 }
-.swiper {
-    width: 400px;
-    height: 550px;
-    padding: 50px;
-  }
 
-  .swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 300px;
-    height: 500px;
-  }
+.card:not(:last-child) {
+  margin-right: 10px;
+}
 
-  .swiper-slide img {
-    display: block;
+.card .card-content {
+	display:flex;
+  padding: 5px 0;
+  flex-direction:column;
+  justify-content:center;
+  margin: 5px 0;
+  max-width: 100%;
+}
+
+.card .card-content img {
     width: 100%;
-    height: 570px;
-    border-radius:10px;
-  }
-  .overlay {
-  position: absolute; 
-  top: 0; 
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.5); /* Black see-through */
-  color: #f1f1f1; 
-  width: 100%; border-radius: 10px 10px 0 0;
-  transition: .5s ease;
-  color: white;
-  font-size: 20px;
-  padding: 20px;
-  text-align: center;
+    max-height: 400px;
+    display: block;
+    max-width: 100%;
 }
-.swipebtn{
-  cursor: pointer;
-  color: #0a1032;
-  font-weight: bolder;
+
+.card .card-link-wrapper {
+  margin-top: auto;
 }
-.overlay a{
+
+.card .card-link {
+  display: inline-block;
   text-decoration: none;
-  color: #eee;
+  text-align: center;
+  color: white;
+  width:100%;
+  background: var(--red);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
 }
-@media (max-width:768px) {
-  .swiper {
-    height: 80vh;
+
+.card:hover .card-link {
+  background: var(--black);
+  box-shadow: rgb(0,0,0,0.5) 0 0 1px;
+}
+
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: var(--black);
+}
+
+.cards::-webkit-scrollbar-track {
+  background: var(--thumb);
+}
+
+@media (min-width: 500px) {
+  .materials{
+    min-width: 500px;
+  }
+  .card {
+    flex-basis: calc(50% - 10px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 20px;
   }
 }
-.message{
-  font-size: 30px;
-  font-weight: bold;
-  color: #0a1032;
-}
-@media (max-width:480px) {
-  .overlay {
-      width: 100%;
+
+@media (min-width: 700px) {
+  .materials{
+    min-width: 700px;
   }
-  .swiper {
-    width: 300px;
-    height: fit-content;
+  .card {
+    flex-basis: calc(calc(100% / 3) - 20px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .materials{
+    min-width: 1100px;
+  }
+  .card {
+    flex-basis: calc(25% - 30px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 40px;
   }
 }

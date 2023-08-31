@@ -49,15 +49,22 @@
 
   
   <h2>Featured Services &rarr;</h2>
-  <div class="container-fluid" id="featuredServices">
+  <div>
     {% if file_details %}
+    <ul class="cards">
       {% for file_detail in file_details %}
-      <a href="{{ file_detail.signed_url }}" target="_blank">
-        <iframe src="{{ file_detail.signed_url }}" frameborder="0"></iframe>
-      </a>
+      <li class="card">
+          <div class="card-content">
+           <img src='{{ file_detail.symbol }}' alt="image" width="250px" height="350px">
+          </div>
+          <div class="card-link-wrapper">
+            <a href="{{ file_detail.signed_url }}" target="_blank" class="card-link">Learn More</a>
+          </div>
+      </li>
       {% endfor %}
+    </ul>
     {% else %}
-      <div class="message">There are no PDF files available.</div>
+          <div class="message">There is no internet connection, please try again later.</div>
     {% endif %}
   </div>
   
